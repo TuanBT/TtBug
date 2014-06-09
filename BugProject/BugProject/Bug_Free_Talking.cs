@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
@@ -9,8 +10,8 @@ namespace BugProject
 {
     class Bug_Free_Talking : Bug_Free
     {
-        public string[] talkSentence = Properties.Resources.talkSentences.Split('\n');
-        public string[] talkGoodNightSentence = Properties.Resources.talkGoodNight.Split('\n');
+        public string[] talkSentence;
+        public string[] talkGoodNightSentence;
         public string[] talkDontKillMe = Properties.Resources.talkDontKill.Split('@');
         public string[] talkGoodBye = Properties.Resources.talkGoodBye.Split('@');
         public string fileNormalName = "TtBugTuanBTNormal.txt";
@@ -31,10 +32,13 @@ namespace BugProject
         private Timer tmrGetSentence;
         private System.ComponentModel.IContainer components;
 
+
         public Bug_Free_Talking(int talkTopic, Boolean talkCondition)
         {
             InitializeComponent();
-            tmrGetSentence.Interval = getSentenceTime;
+            talkSentence = CONSTANT.normalTalk;
+            talkGoodNightSentence = CONSTANT.goodnightTalk;
+           // tmrGetSentence.Interval = getSentenceTime;
             //tmrGetSentence.Start();
             switch (talkTopic)
             {
@@ -57,9 +61,9 @@ namespace BugProject
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.tmrRandomTalk = new System.Windows.Forms.Timer(this.components);
-            this.tmrGoodNight = new System.Windows.Forms.Timer(this.components);
-            this.tmrGetSentence = new System.Windows.Forms.Timer(this.components);
+            this.tmrRandomTalk = new Timer(this.components);
+            this.tmrGoodNight = new Timer(this.components);
+            this.tmrGetSentence = new Timer(this.components);
             this.SuspendLayout();
             // 
             // tmrRandomTalk
@@ -72,8 +76,6 @@ namespace BugProject
             // 
             // tmrGetSentence
             // 
-            this.tmrGetSentence.Enabled = true;
-            this.tmrGetSentence.Interval = 60000;
             this.tmrGetSentence.Tick += new System.EventHandler(this.tmrGetSentence_Tick);
             // 
             // Bug_Free_Talking
@@ -125,8 +127,8 @@ namespace BugProject
             if (talkConditionBug)
             {
                 //Talk conditions.
-                tmrGoodNight.Interval = checkGoodNightTime;
-                tmrGoodNight.Start();
+                //tmrGoodNight.Interval = checkGoodNightTime;
+                //tmrGoodNight.Start();
             }
         }
 
@@ -183,10 +185,11 @@ namespace BugProject
         private void tmrGoodNight_Tick(object sender, EventArgs e)
         {
             int nowHour = DateTime.Now.Hour;
-            if (nowHour > 22 || nowHour < 4)
+            //if (nowHour > 22 || nowHour < 4)
+            if(true)
             {
-                this.StartTalk(talkGoodNightSentence[rand.Next(0, talkGoodNightSentence.Length)], talkTime);
-                tmrGoodNight.Stop();
+                StartTalk(talkGoodNightSentence[rand.Next(0, talkGoodNightSentence.Length)], talkTime);
+                //tmrGoodNight.Stop();
             }
         }
 

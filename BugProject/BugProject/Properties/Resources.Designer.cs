@@ -97,11 +97,61 @@ namespace BugProject.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap chickenA1 {
+            get {
+                object obj = ResourceManager.GetObject("chickenA1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap chickenA2 {
+            get {
+                object obj = ResourceManager.GetObject("chickenA2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ExamClientV4.
         /// </summary>
         internal static string exitWith {
             get {
                 return ResourceManager.GetString("exitWith", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Heart {
+            get {
+                object obj = ResourceManager.GetObject("Heart", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lion1 {
+            get {
+                object obj = ResourceManager.GetObject("lion1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lion2 {
+            get {
+                object obj = ResourceManager.GetObject("lion2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -196,7 +246,7 @@ namespace BugProject.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to EAAAAIeBD7hPA9Zx7RSqvZ2d0g+Y10cV0brpusDedL7FrPm+DQdDPQ5XqkyrWIU6MuSKWOpirmi0YHoEg3GDMCS6cF8CJOW4NmELBVbUV6rEyEZ4VTcEzJP/GqnyGaNuSeH3zqyYFAc1uDCAJ1MzAwjR0gT8yIAI/ucpwD/yfAQ0Xa+gKqlLCqrT0qAS0qIfZ1YfnIGB97g9XmAT+aVFzhwPHSKMxVU9s3WxihiReqjWMJJXv88HlDF05JMlnNkkVgM0suzlCYgXNJgJvpRsIDhtCpS1bEjHnMz6QqQqAEjBBnD7uLdEukA9RVykwReYrGStlBJfJV7bT/uJvol9t99Pm2TIQ/eMy//nmf38bOUWCeX++vTL1wByqdj6Bza4NJL8a/bfL0nLdf1ypL3EGSYphMcGOCzJHcQkRNp8wYV1w7RoZnSj8pm/d1lt6xsCUPHqESmOgxxbZGQsQ1gj1SasEAAF+wgQbcSPJdyPPS0jPXdu3Qx4ZHKeamweDLnk [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to Dont&apos;t kill me!.
         /// </summary>
         internal static string talkDontKill {
             get {
@@ -205,7 +255,7 @@ namespace BugProject.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to EAAAAJ9aeGoPARz2OKUijOauewoIzCo9O0PB4lthQtHmn9EiCp5ZtM5NgAxycJfUuAWWX8t/cpMy6uNJgJpQA4qIbL0jV3khlyWUfDWLZsC+hfCegMB9mGILCBXVKdjW6kObwSlRhXtzTo0d3b2n5Y1Zca2EuJ2iQrs11U9hYMBke0tPGVK1hNaeT9flM3f998gxaDzORGTxsvdo1kMtDs0oZKK5Yz3Y5pPFS/Rp7NMhvund2W4lmrct1sZX9ZRfitoOBIrPj0ghZAwN/9d9RnG0TcxbubluTwRirhbd97b1Epo14Dpz4fBGyAfmpbhjTYituPH9xQcO/s6fygsuwOSrZTJgWFMe4/UPSVxUcibqzAY9lf3GdNvb1Fez+qzSPs5k5JV+6W6vK0Pt2qYwjF5AE5Aof5ptWDFRX4l57s7hPA232wK7fawKQuIrUlI58ttW7PsbTqKEng7p+aMykP0rB73Q1t+kYc/052ylssjXrQ+VCOcMtbn0dnVKcvVA [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to Goodbye.
         /// </summary>
         internal static string talkGoodBye {
             get {
@@ -232,7 +282,10 @@ namespace BugProject.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ....
+        ///   Looks up a localized string similar to Tớ là con Sư tử gầm rú đầy uy mãnh
+        ///Này bạn Gà kia, bạn thôi lắc mình được không?
+        ///Trời nắng, gà con có muốn tắm nắng không?
+        ///Tớ là sư tư, nhưng không có nghĩa tớ tên tử.
         /// </summary>
         internal static string talkSentences {
             get {
@@ -241,7 +294,7 @@ namespace BugProject.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ....
+        ///   Looks up a localized string similar to Tớ là gà con hay ghen.
         /// </summary>
         internal static string talkSentences2 {
             get {

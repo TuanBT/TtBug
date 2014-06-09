@@ -16,7 +16,6 @@ namespace BugProject
         {
             AppearLocation(500, 500);
             this.MoveBug(700, 700, 10, (r) => done(r));
-            
         }
 
         private object done(bool r)

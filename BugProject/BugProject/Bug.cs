@@ -15,6 +15,9 @@ namespace BugProject
 
     public partial class Bug : Form
     {
+        public Image normalImage;
+        public Image specialIamge;
+
         private int exsilonTalkLeft = 10;
         private int exsilonTalkHeight = -110;
 
@@ -51,11 +54,13 @@ namespace BugProject
         public Bug()
         {
             InitializeComponent();
+            normalImage = CONSTANT.normalImage;
+            specialIamge = CONSTANT.specialImage;
+            picNormal.Image = normalImage;
             BackColor = Color.White;
             TransparencyKey = Color.White;
             this.Opacity = 0.5;
             SetFormTransparent(this.Handle);
-            this.Size = new Size(pictureBox1.Height, pictureBox1.Width);
         }
 
         public void SetFormTransparent(IntPtr Handle)
@@ -98,7 +103,7 @@ namespace BugProject
 
         public void RotateBugImage(int degree)
         {
-            //this.pictureBox1.Image = this.RotateImage((Bitmap)pictureBox2.Image, degree);
+            //this.picNormal.Image = this.RotateImage((Bitmap)picNormal.Image, degree);
         }
 
         //More function for basic bug: talk, ...
@@ -216,20 +221,38 @@ namespace BugProject
             frmTalkDialog.Top = this.Top + exsilonTalkHeight;
         }
 
+        public void StopMove()
+        {
+            timer1.Enabled = false;
+            picNormal.Image = specialIamge;
+            stopMove = true;
+            tmrStandLove.Interval = 2000;
+            tmrStandLove.Start();
+        }
+
+        private void tmrStandLove_Tick(object sender, EventArgs e)
+        {
+            timer1.Enabled = true;
+            picNormal.Image = normalImage;
+            stopMove = false;
+            tmrStandLove.Stop();
+        }
+
         public void StartTalk(String say, int milisecond)
         {
             //Dung tu di chuyen
             timer1.Enabled = false;
-            //Co the them lenh chuyen qua hinh khac khi noi
-            Image aImage = pictureBox1.Image;
-            pictureBox1.Image = pictureBox2.Image;
-            pictureBox2.Image = aImage;
+
             stopMove = true;
 
             if (isTalking)
             {
                 StopTalk();
             }
+
+            //Co the them lenh chuyen qua hinh khac khi noi
+            picNormal.Image = specialIamge;
+
             frmTalkDialog = new TalkDialog(say);
             frmTalkDialog.Left = this.Left + exsilonTalkLeft;
             frmTalkDialog.Top = this.Top + exsilonTalkHeight;
@@ -245,9 +268,7 @@ namespace BugProject
             try
             {
                 //Chuyen ve hinh cu
-                Image aImage = pictureBox1.Image;
-                pictureBox1.Image = pictureBox2.Image;
-                pictureBox2.Image = aImage;
+                picNormal.Image = normalImage;
                 stopMove = false;
 
                 frmTalkDialog.Dispose();
@@ -268,18 +289,16 @@ namespace BugProject
         {
             //Co the them lenh chuyen qua hinh khac khi noi
             timer1.Enabled = false;
-            Image aImage = pictureBox1.Image;
-            pictureBox1.Image = pictureBox2.Image;
-            pictureBox2.Image = aImage;
+            picNormal.Image = specialIamge;
             stopMove = true;
 
-           /* if (isTalking)
-            {
-                frmTalkDialog.Dispose();
-                frmTalkDialog = null;
-                tmrTalk.Stop();
-               isTalking = false;
-            }*/
+            /* if (isTalking)
+             {
+                 frmTalkDialog.Dispose();
+                 frmTalkDialog = null;
+                 tmrTalk.Stop();
+                isTalking = false;
+             }*/
             frmHeart = new Heart();
             frmHeart.Left = this.Left + exsilonHeartLeft;
             frmHeart.Top = this.Top + exsilonHeartHeight;
@@ -294,16 +313,8 @@ namespace BugProject
             timer1.Enabled = true;
             try
             {
-                //Chuyen ve hinh cu
-                /*Image aImage = pictureBox1.Image;
-                pictureBox1.Image = pictureBox2.Image;
-                pictureBox2.Image = aImage;
-                stopMove = false;*/
-
                 frmHeart.Dispose();
                 frmHeart = null;
-                //tmrHeart.Stop();
-                //isTalking = false;
             }
             catch { }
         }
@@ -311,16 +322,13 @@ namespace BugProject
         private void tmrCountDown_Tick(object sender, EventArgs e)
         {
             tmrCountDown.Stop();
-                StopTalk();
-                StopLove();
+            StopTalk();
+            StopLove();
         }
 
         private void Bug_FormClosing(object sender, FormClosingEventArgs e)
         {
             StopTalk();
         }
-
-
-
     }
 }

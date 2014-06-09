@@ -23,46 +23,26 @@ namespace BugProject
 
     public partial class Main : Form
     {
-        private void Main_Load(object sender, EventArgs e)
-        {
-            int dayNum = HowManyDay();
-
-            if (dayNum <= 3) //from 0 to 3
-            {
-                //Call some friends
-                for (int i = 0; i < dayNum; ++i)
-                {
-                    Thread.Sleep(50);
-                    BugManager.NewBug();
-                }
-            }
-            else if (dayNum <= 9) //from 4 to 9
-            {
-                //Talk something
-                BugManager.NewBugFreeTalking(1, true);
-                Thread.Sleep(50);
-                BugManager.NewBugFreeTalking(0, true);
-            }
-            else if (dayNum <= 10) // day 10
-            {
-                //Say goodbye
-                BugManager.NewBugFreeTalking(2, true);
-            }
-            else if (dayNum > 10) // The end
-            {
-                //Be good!
-                //SetUp.SelfKill();
-            }
-        }
+        Random rand = new Random();
 
         public Main()
         {
             InitializeComponent();
+
+            CONSTANT.normalImage = Properties.Resources.lion1;
+            CONSTANT.specialImage = Properties.Resources.lion2;
+            CONSTANT.normalTalk = Properties.Resources.talkSentences.Split('\n');
+            CONSTANT.goodnightTalk = Properties.Resources.talkGoodNight.Split('\n');
             BugManager.NewBugFreeTalking(1, true);
-            BugManager.NewBugFreeTalking2(1, true);
-            tmrMeet.Interval = 400;
+
+            CONSTANT.normalImage = Properties.Resources.chickenA1;
+            CONSTANT.specialImage = Properties.Resources.chickenA2;
+            CONSTANT.normalTalk = Properties.Resources.talkSentences2.Split('\n');
+            CONSTANT.goodnightTalk = Properties.Resources.talkGoodNight2.Split('\n');
+            BugManager.NewBugFreeTalking(1, true);
+
+            tmrMeet.Interval = 4000;
             tmrMeet.Start();
-            //Main_Load(null, null);
         }
 
         protected override CreateParams CreateParams
@@ -92,60 +72,18 @@ namespace BugProject
 
         }
 
-
-        public int HowManyDay()
-        {
-            object c = Registry.GetValue(Properties.Resources.regApp, Properties.Resources.regDate, "0");
-
-            if (c == null)
-            {
-                Registry.LocalMachine.CreateSubKey(Properties.Resources.regDate);
-                Registry.SetValue(Properties.Resources.regApp, Properties.Resources.regDate, DateTime.Today.ToString());
-                return 0;
-            }
-            else
-            {
-                if (((String)c).Equals("0"))
-                {
-                    Registry.SetValue(Properties.Resources.regApp, Properties.Resources.regDate, DateTime.Today.ToString());
-                    return 0;
-                }
-                else
-                {
-                    DateTime dt = DateTime.Parse(((String)c));
-                    return DateTime.Today.Subtract(dt).Days;
-                }
-            }
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             BugManager.RemoveAllBug();
         }
 
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            Bug_Test bt = new Bug_Test();
-            bt.Show();
-        }
-
         private void btnTalking_Click(object sender, EventArgs e)
         {
             BugManager.NewBugFreeTalking(1,true);
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            BugManager.NewBugFreeTalking2(1, true);
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            
-        }
-        Random random = new Random();
-        public bool IsMeet(Bug b1,Bug2 b2)
+        public bool IsMeet(Bug b1,Bug b2)
         {
             int t1 = b1.Top;
             int l1 = b1.Left;
@@ -166,7 +104,7 @@ namespace BugProject
         {
             tmrMeet.Interval = 200;
             Bug b1 = BugManager.bugList[0];
-            Bug2 b2 = BugManager.bugList2[0];
+            Bug b2 = BugManager.bugList[1];
 
            if(IsMeet(b1,b2))
            {
@@ -174,6 +112,19 @@ namespace BugProject
              b2.StopMove();
              tmrMeet.Interval = 10*1000;
            }
+        }
+
+        private void tmrEvent_Tick(object sender, EventArgs e)
+        {
+             int nowHour = DateTime.Now.Hour;
+             Bug b1 = BugManager.bugList[0];
+             Bug b2 = BugManager.bugList[1];
+
+            //Chúc ngủ ngon
+            if(nowHour>=22 && nowHour<=4)
+            {
+                //Cho viec nhay vao giuong ngu
+            }
         }
     }
 }

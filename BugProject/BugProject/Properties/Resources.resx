@@ -196,4 +196,19 @@
   <data name="talkSentences2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\talkSentences2.txt;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="chickenA1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\chickenA1.gif;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chickenA2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\chickenA2.gif;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Heart" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Heart.gif;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lion1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lion1.gif;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lion2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lion2.gif;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

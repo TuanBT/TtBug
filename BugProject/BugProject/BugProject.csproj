@@ -66,18 +66,6 @@
     <Compile Include="Bug_Test.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Bug2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Bug2.Designer.cs">
-      <DependentUpon>Bug2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Bug_Free2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Bug_Free_Talking2.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="CONSTANT.cs" />
     <Compile Include="Heart.cs">
       <SubType>Form</SubType>
@@ -118,18 +106,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Bug_Free_Talking.resx">
       <DependentUpon>Bug_Free_Talking.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Bug2.resx">
-      <DependentUpon>Bug2.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Bug_Free2.resx">
-      <DependentUpon>Bug_Free2.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Bug_Free_Talking2.resx">
-      <DependentUpon>Bug_Free_Talking2.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Heart.resx">
@@ -197,6 +173,11 @@
     <None Include="Resources\talkGoodNight2.txt" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\chickenA1.gif" />
+    <None Include="Resources\chickenA2.gif" />
+    <None Include="Resources\Heart.gif" />
+    <None Include="Resources\lion1.gif" />
+    <None Include="Resources\lion2.gif" />
     <Content Include="Tt.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
