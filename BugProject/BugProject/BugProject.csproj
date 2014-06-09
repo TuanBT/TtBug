@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{88CE37B4-EB7A-4801-971E-23EF174406C7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BugProject</RootNamespace>
+    <AssemblyName>TtBug</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>BugProject.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Tt.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bug.Designer.cs">
+      <DependentUpon>Bug.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BugManager.cs" />
+    <Compile Include="Bug_Free.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bug_Free_Talking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bug_Test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bug2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bug2.Designer.cs">
+      <DependentUpon>Bug2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bug_Free2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bug_Free_Talking2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CONSTANT.cs" />
+    <Compile Include="Heart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Heart.Designer.cs">
+      <DependentUpon>Heart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProcessUtil.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SentenceDB.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="SQLDatabaseHelper.cs" />
+    <Compile Include="TalkDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TalkDialog.Designer.cs">
+      <DependentUpon>TalkDialog.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Bug.resx">
+      <DependentUpon>Bug.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bug_Free.resx">
+      <DependentUpon>Bug_Free.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bug_Free_Talking.resx">
+      <DependentUpon>Bug_Free_Talking.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bug2.resx">
+      <DependentUpon>Bug2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bug_Free2.resx">
+      <DependentUpon>Bug_Free2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bug_Free_Talking2.resx">
+      <DependentUpon>Bug_Free_Talking2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Heart.resx">
+      <DependentUpon>Heart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TalkDialog.resx">
+      <DependentUpon>TalkDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="app.manifest">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\igconfig.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\talkDontKill.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\talkGoodNight.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\talkSentences.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\termmgr_e_e.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bug.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\desktopini.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\talkGoodBye.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\KillTheBug.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\talkSentences2.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\talkGoodNight2.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Tt.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
