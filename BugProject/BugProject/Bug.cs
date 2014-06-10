@@ -46,6 +46,8 @@ namespace BugProject
 
         Action<Boolean> callBack;
 
+        private bool ignorMouse = false; //Bỏ qua sự tác động của chuộ. Tức là đụng vào cũng không di chuyển
+
         Form frmTalkDialog;
         private Form frmHeart;
         public Boolean isTalking = false;
@@ -72,6 +74,11 @@ namespace BugProject
         public void SetFormNormal(IntPtr Handle)
         {
             SetWindowLong(Handle, -20, Convert.ToInt32(oldWindowLong | 0x80000));
+        }
+
+        public int GetLeft()
+        {
+            return this.Left;
         }
 
         public void AppearLocation(int left, int top)
@@ -154,8 +161,48 @@ namespace BugProject
             x *= -1;
             return new Point(x, y);
         }
+
+        //Điều khiển chạy bằng tay
+        public void AppearTo(int left, int top)
+        {
+            tmrAppear.Tick += new EventHandler((sender, e) => tmrAppear_Tick(sender, e, left, top));
+            tmrAppear.Interval = 100;
+            tmrAppear.Start();
+        }
+
+        private void tmrAppear_Tick(object sender, EventArgs e, int left, int top)
+        {
+            if (this.Left != left && this.Top != top)
+            {
+                this.Opacity -= 0.1;
+                if (this.Opacity == 0)
+                {
+                    this.Left = left;
+                    this.Top = top;
+                    this.Opacity = 0.1;
+                }
+                return;
+            }
+
+            this.Opacity += 0.1;
+            if (this.Opacity >= 0.5)
+            {
+                this.Opacity = 0.5;
+                tmrAppear.Stop();
+                return;
+            }
+        }
+
         public void MoveBug(int left, int top, int speed, Action<Boolean> c)
         {
+            if(CONSTANT.isStand)
+            {
+                return;
+            }
+            if (ignorMouse)
+            {
+                return;
+            }
             //Neu dung chay de noi, va chuot khong di vao thi phai dung lai
             if (stopMove && speed != 1)
             {
@@ -185,6 +232,11 @@ namespace BugProject
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            if(CONSTANT.isStand)
+            {
+                timer1.Stop();
+                callBack(true);
+            }
             if (Math.Sqrt((this.Top - toTop) * (this.Top - toTop) + (this.Left - toLeft) * (this.Left - toLeft)) > appr)
             {
                 int fromLeft = this.Left;
@@ -221,12 +273,29 @@ namespace BugProject
             frmTalkDialog.Top = this.Top + exsilonTalkHeight;
         }
 
-        public void StopMove()
+        //Dừng không chạy nữa. Đồng thời dừng hết các hoạt động nói năng
+        public void Stand()
+        {
+            StopTalk();
+            StopLove();
+            CONSTANT.isStand = true;
+            CONSTANT.accepTalk = false;
+
+        }
+
+        //Dừng không chạy nữa
+        public void ContinousRun()
+        {
+            CONSTANT.isStand = false;
+            CONSTANT.accepTalk = true;
+        }
+
+        public void StopMoveLove()
         {
             timer1.Enabled = false;
             picNormal.Image = specialIamge;
             stopMove = true;
-            tmrStandLove.Interval = 2000;
+            tmrStandLove.Interval = CONSTANT.timeShowHeart;
             tmrStandLove.Start();
         }
 
@@ -240,15 +309,18 @@ namespace BugProject
 
         public void StartTalk(String say, int milisecond)
         {
-            //Dung tu di chuyen
-            timer1.Enabled = false;
-
-            stopMove = true;
-
+            if(!CONSTANT.accepTalk)
+            {
+                return;
+            }
             if (isTalking)
             {
                 StopTalk();
             }
+
+            //Dung tu di chuyen
+            timer1.Enabled = false;
+            stopMove = true;
 
             //Co the them lenh chuyen qua hinh khac khi noi
             picNormal.Image = specialIamge;
@@ -288,6 +360,7 @@ namespace BugProject
         public void StartLove(int milisecond)
         {
             //Co the them lenh chuyen qua hinh khac khi noi
+            CONSTANT.accepTalk = false;
             timer1.Enabled = false;
             picNormal.Image = specialIamge;
             stopMove = true;
@@ -303,20 +376,22 @@ namespace BugProject
             frmHeart.Left = this.Left + exsilonHeartLeft;
             frmHeart.Top = this.Top + exsilonHeartHeight;
             frmHeart.Show();
-            isTalking = true;
+            //isTalking = true;
             //tmrHeart.Start();
             tmrCountDown.Interval = milisecond;
             tmrCountDown.Start();
         }
         public void StopLove()
         {
-            timer1.Enabled = true;
+            
             try
             {
                 frmHeart.Dispose();
                 frmHeart = null;
             }
             catch { }
+            timer1.Enabled = true;
+            CONSTANT.accepTalk = true;
         }
 
         private void tmrCountDown_Tick(object sender, EventArgs e)
@@ -330,5 +405,7 @@ namespace BugProject
         {
             StopTalk();
         }
+
+
     }
 }

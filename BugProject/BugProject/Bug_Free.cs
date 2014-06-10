@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace BugProject
@@ -147,6 +148,10 @@ namespace BugProject
         //Hành động khi có chuột đụng vào
         private void timer4_Tick(object sender, EventArgs e)
         {
+            if(CONSTANT.isStand)
+            {
+                return;
+            }
             if (this.Left > Cursor.Position.X - protectedRange && this.Left < Cursor.Position.X + protectedRange)
             {
                 if (this.Top > Cursor.Position.Y - protectedRange && this.Top < Cursor.Position.Y + protectedRange)

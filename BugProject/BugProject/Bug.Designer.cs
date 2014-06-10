@@ -35,6 +35,7 @@
             this.tmrCountDown = new System.Windows.Forms.Timer(this.components);
             this.tmrHeart = new System.Windows.Forms.Timer(this.components);
             this.tmrStandLove = new System.Windows.Forms.Timer(this.components);
+            this.tmrAppear = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picNormal)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,5 +96,6 @@
         private System.Windows.Forms.Timer tmrCountDown;
         private System.Windows.Forms.Timer tmrHeart;
         private System.Windows.Forms.Timer tmrStandLove;
+        private System.Windows.Forms.Timer tmrAppear;
     }
 }

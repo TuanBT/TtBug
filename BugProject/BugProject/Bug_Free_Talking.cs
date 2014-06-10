@@ -11,7 +11,7 @@ namespace BugProject
     class Bug_Free_Talking : Bug_Free
     {
         public string[] talkSentence;
-        public string[] talkGoodNightSentence;
+        //public string[] talkGoodNightSentence;
         public string[] talkDontKillMe = Properties.Resources.talkDontKill.Split('@');
         public string[] talkGoodBye = Properties.Resources.talkGoodBye.Split('@');
         public string fileNormalName = "TtBugTuanBTNormal.txt";
@@ -37,7 +37,7 @@ namespace BugProject
         {
             InitializeComponent();
             talkSentence = CONSTANT.normalTalk;
-            talkGoodNightSentence = CONSTANT.goodnightTalk;
+            //talkGoodNightSentence = CONSTANT.goodnightTalk;
            // tmrGetSentence.Interval = getSentenceTime;
             //tmrGetSentence.Start();
             switch (talkTopic)
@@ -61,9 +61,9 @@ namespace BugProject
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.tmrRandomTalk = new Timer(this.components);
-            this.tmrGoodNight = new Timer(this.components);
-            this.tmrGetSentence = new Timer(this.components);
+            this.tmrRandomTalk = new System.Windows.Forms.Timer(this.components);
+            this.tmrGoodNight = new System.Windows.Forms.Timer(this.components);
+            this.tmrGetSentence = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // tmrRandomTalk
@@ -81,12 +81,11 @@ namespace BugProject
             // Bug_Free_Talking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(64, 39);
+            this.ClientSize = new System.Drawing.Size(38, 39);
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "Bug_Free_Talking";
             this.Load += new System.EventHandler(this.Bug_Free_Talking_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -124,12 +123,12 @@ namespace BugProject
                     BeginTalk();
                 }
             }
-            if (talkConditionBug)
+            /*if (talkConditionBug)
             {
                 //Talk conditions.
-                //tmrGoodNight.Interval = checkGoodNightTime;
-                //tmrGoodNight.Start();
-            }
+                tmrGoodNight.Interval = checkGoodNightTime;
+                tmrGoodNight.Start();
+            }*/
         }
 
         private void BeginTalk()
@@ -184,13 +183,13 @@ namespace BugProject
 
         private void tmrGoodNight_Tick(object sender, EventArgs e)
         {
-            int nowHour = DateTime.Now.Hour;
+           /* int nowHour = DateTime.Now.Hour;
             //if (nowHour > 22 || nowHour < 4)
             if(true)
             {
                 StartTalk(talkGoodNightSentence[rand.Next(0, talkGoodNightSentence.Length)], talkTime);
                 //tmrGoodNight.Stop();
-            }
+            }*/
         }
 
         private void tmrGetSentence_Tick(object sender, EventArgs e)
@@ -211,7 +210,7 @@ namespace BugProject
                     talkSentence = Properties.Resources.talkSentences.Split('\n');
                 }
             }
-            talkGoodNightSentence = sentenceDb.GetSentence(1, 2);
+            /*talkGoodNightSentence = sentenceDb.GetSentence(1, 2);
             if (talkGoodNightSentence != null)
             {
                 WriteToFile(fileGoodNightName, talkGoodNightSentence);
@@ -223,7 +222,7 @@ namespace BugProject
                 {
                     talkGoodNightSentence = Properties.Resources.talkGoodNight.Split('\n');
                 }
-            }
+            }*/
             tmrGetSentence.Enabled = true;
         }
     }

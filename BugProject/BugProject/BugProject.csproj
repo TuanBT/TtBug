@@ -73,6 +73,12 @@
     <Compile Include="Heart.Designer.cs">
       <DependentUpon>Heart.cs</DependentUpon>
     </Compile>
+    <Compile Include="House.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="House.Designer.cs">
+      <DependentUpon>House.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,8 +114,14 @@
       <DependentUpon>Bug_Free_Talking.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Bug_Test.resx">
+      <DependentUpon>Bug_Test.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Heart.resx">
       <DependentUpon>Heart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="House.resx">
+      <DependentUpon>House.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>

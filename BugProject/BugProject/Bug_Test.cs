@@ -22,5 +22,19 @@ namespace BugProject
         {
             return null;
         }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // Bug_Test
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.ClientSize = new System.Drawing.Size(37, 37);
+            this.Location = new System.Drawing.Point(0, 0);
+            this.Name = "Bug_Test";
+            this.ResumeLayout(false);
+
+        }
     }
 }
