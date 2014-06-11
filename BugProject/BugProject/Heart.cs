@@ -11,6 +11,7 @@ namespace BugProject
 {
     public partial class Heart : Form
     {
+        #region trong suot
         [DllImport("user32.dll", SetLastError = true)]
         static extern int GetWindowLong(IntPtr hWnd, int nIndex);
 
@@ -39,5 +40,6 @@ namespace BugProject
         {
             SetWindowLong(Handle, -20, Convert.ToInt32(oldWindowLong | 0x80000));
         }
+        #endregion
     }
 }

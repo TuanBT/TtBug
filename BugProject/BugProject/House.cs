@@ -55,18 +55,18 @@ namespace BugProject
 
         public Size GetPicZise()
         {
-            return new Size(pictureBox1.Width,pictureBox1.Height);
+            return new Size(pictureBox1.Width, pictureBox1.Height);
         }
 
         private void tmrCursor_Tick(object sender, EventArgs e)
         {
             //Console.WriteLine(this.Left + "---" + Cursor.Position.X);
-            if (this.Left <= Cursor.Position.X  && this.Left+this.Width >= Cursor.Position.X )
+            if (this.Left <= Cursor.Position.X && this.Left + pictureBox1.Width >= Cursor.Position.X)
             {
                 //Console.WriteLine(Cursor.Position.X + "---" + Cursor.Position.Y);
-                if (this.Top <= Cursor.Position.Y && this.Top+Width >= Cursor.Position.Y )
+                if (this.Top <= Cursor.Position.Y && this.Top + pictureBox1.Height >= Cursor.Position.Y)
                 {
-                   // MessageBox.Show("asd");
+                    // MessageBox.Show("asd");
                     //this.Opacity = 0.1;
                     //this.Visible = false;
                     this.Top -= 200;

@@ -74,12 +74,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(40, 41);
+            this.ClientSize = new System.Drawing.Size(46, 42);
             this.ControlBox = false;
             this.Controls.Add(this.picNormal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Bug";
             this.Opacity = 0.5D;
+            this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Bug_FormClosing);

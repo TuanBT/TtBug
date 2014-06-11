@@ -15,7 +15,7 @@ namespace BugProject
         //public static int talkTime = 3 * 1000; //10 seconds----------------
         public static int checkGoodNightTime = 20 * 60 * 1000; //20 minutes
         //public static int checkGoodNightTime = 10 * 1000; //20 minutes
-        public static int getSentenceTime = 60 * 60 * 1000; //60 minutes
+        //public static int getSentenceTime = 60 * 60 * 1000; //60 minutes
 
         public static int range = 300;
         public static int appr = 50;
@@ -28,8 +28,8 @@ namespace BugProject
         public static int timeMouseOn = 300; //Thời gian phản ứng khi có chuột đụng vào TheBug
 
         public static int timeShowHeart = 2 * 1000; //Thời gian hiện trái tim
-        public static int timeEvent = 30 * 60 * 1000; //Thời gian check sự kiện
-        //public static int timeEvent = 10 * 1000; //Thời gian check sự kiện--------------
+        //public static int timeEvent = 15 * 60 * 1000; //Thời gian check sự kiện
+        public static int timeEvent = 10 * 1000; //Thời gian check sự kiện--------------
 
         public static Image normalImage;
         public static Image specialImage;

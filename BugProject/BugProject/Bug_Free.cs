@@ -49,12 +49,11 @@ namespace BugProject
             // Bug_Free
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(64, 39);
+            this.ClientSize = new System.Drawing.Size(35, 35);
             this.Location = new System.Drawing.Point(0, 0);
             this.Name = "Bug_Free";
             this.Load += new System.EventHandler(this.Bug_Free_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

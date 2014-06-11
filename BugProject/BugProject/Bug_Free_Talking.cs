@@ -23,7 +23,7 @@ namespace BugProject
         Boolean talkRandomBug = false;
         Boolean talkConditionBug = true;
         Boolean talkGoodByeBug = false;
-        private int getSentenceTime = CONSTANT.getSentenceTime;
+        //private int getSentenceTime = CONSTANT.getSentenceTime;
 
         Random rand = new Random();
 
@@ -81,7 +81,7 @@ namespace BugProject
             // Bug_Free_Talking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(38, 39);
+            this.ClientSize = new System.Drawing.Size(35, 35);
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "Bug_Free_Talking";
             this.Load += new System.EventHandler(this.Bug_Free_Talking_Load);
@@ -194,7 +194,7 @@ namespace BugProject
 
         private void tmrGetSentence_Tick(object sender, EventArgs e)
         {
-            tmrGetSentence.Enabled = false;
+            /*tmrGetSentence.Enabled = false;
             SentenceDB sentenceDb = new SentenceDB();
             talkSentence = sentenceDb.GetSentence(1, 1);
             if (talkSentence != null)
@@ -210,20 +210,7 @@ namespace BugProject
                     talkSentence = Properties.Resources.talkSentences.Split('\n');
                 }
             }
-            /*talkGoodNightSentence = sentenceDb.GetSentence(1, 2);
-            if (talkGoodNightSentence != null)
-            {
-                WriteToFile(fileGoodNightName, talkGoodNightSentence);
-            }
-            else
-            {
-                talkGoodNightSentence = ReadFromFile(fileGoodNightName);
-                if (talkGoodNightSentence == null)
-                {
-                    talkGoodNightSentence = Properties.Resources.talkGoodNight.Split('\n');
-                }
-            }*/
-            tmrGetSentence.Enabled = true;
+            tmrGetSentence.Enabled = true;*/
         }
     }
 }

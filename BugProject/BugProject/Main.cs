@@ -27,6 +27,7 @@ namespace BugProject
         private Bug b1;
         private Bug b2;
         private House frmHouse;
+        private HeartBig frmHeartBig;
 
         public Main()
         {
@@ -44,8 +45,8 @@ namespace BugProject
             //CONSTANT.goodnightTalk = Properties.Resources.talkGoodNight.Split('\n');
             BugManager.NewBugFreeTalking(1, true);
 
-            b1 = BugManager.bugList[0];
-            b2 = BugManager.bugList[1];
+            b2 = BugManager.bugList[0];
+            b1 = BugManager.bugList[1];
 
             tmrMeet.Interval = 4000;
             tmrMeet.Start();
@@ -78,25 +79,22 @@ namespace BugProject
         private void button1_Click(object sender, EventArgs e)
         {
             //BugManager.NewMoreBug();
-
-            //b1.Stand();
-            //b1.Left = b2.Left;
-            //b1.Top = b2.Top;
-            //b1.AppearTo(b2.Left, b2.Top);
-            //b1.ContinousRun();
-            //Console.WriteLine(a+"--"+b1.GetLeft());
-            //Form frmHouse;
-            
-            //b1.Opacity = 0;
-            //b2.Opacity = 0;
+            Form frmHeartBig = new HeartBig();
+            frmHeartBig .Show();
 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             // BugManager.RemoveAllBug();
+            tmrMeet.Interval = 10 * 1000;
+            tmrMeet.Start();
+            b1.ContinousRun();
+            b2.ContinousRun();
+            b1.Visible = true;
+            b2.Visible = true;
             frmHouse.Dispose();
-            frmHouse.Close();
+            frmHouse = null;
             SleepHouse = false;
         }
 
@@ -116,22 +114,49 @@ namespace BugProject
 
 
             double disance = Math.Sqrt(Math.Pow((t1 - t2), 2) + Math.Pow((l1 - l2), 2));
-            if (disance <= b1.Width)
+            if (disance < b1.Width)
             {
                 return true;
             }
             return false;
+            //return true;
         }
 
+        private int countMeet = 0;
         private void tmrMeet_Tick(object sender, EventArgs e)
         {
             tmrMeet.Interval = 200;
             if (IsMeet(b1, b2))
             {
+                if(countMeet==10)
+                {
+                    //Code hien trai tim bu
+                    b1.StopTalk();
+                    b2.StopTalk();
+                    b1.Stand();
+                    b2.Stand();
+                    b1.StartLove(CONSTANT.timeShowHeart, true, Properties.Resources.lion2);
+                    b2.StartLove(CONSTANT.timeShowHeart, false, Properties.Resources.hatching_chicken_in_love);
+                    frmHeartBig = new HeartBig();
+                    frmHeartBig.Left = b1.Left<b2.Left?b1.Left:b2.Left;
+                    frmHeartBig.Top = b1.Top < b2.Top ? b1.Top : b2.Top;
+                    frmHeartBig.Show();
+                    countMeet = 0;
+                    tmrMeet.Interval = 5 * 1000;
+                    return;
+                }
+                countMeet++;
+                try
+                {
+                    frmHeartBig.Dispose();
+                    frmHouse = null;
+                }catch{}
+                b1.ContinousRun();
+                b2.ContinousRun();
                 b1.StopTalk();
                 b2.StopTalk();
-                b1.StartLove(CONSTANT.timeShowHeart);
-                b2.StopMoveLove();
+                b1.StartLove(CONSTANT.timeShowHeart,true,Properties.Resources.lion2);
+                b2.StartLove(CONSTANT.timeShowHeart, false, Properties.Resources.hatching_chicken_in_love);
                 tmrMeet.Interval = 10 * 1000;
             }
         }
@@ -142,7 +167,7 @@ namespace BugProject
         {
             int nowHour = DateTime.Now.Hour;
             //Chúc ngủ ngon
-            if (nowHour >= 1 && nowHour <= 4 || nowHour >= 12 && nowHour <= 1)
+            if (nowHour >= 0 && nowHour <= 4 || nowHour >= 12 && nowHour < 13)
             {
                 if (!SleepHouse)
                 {

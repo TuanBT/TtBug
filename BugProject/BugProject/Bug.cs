@@ -15,15 +15,7 @@ namespace BugProject
 
     public partial class Bug : Form
     {
-        public Image normalImage;
-        public Image specialIamge;
-
-        private int exsilonTalkLeft = 10;
-        private int exsilonTalkHeight = -110;
-
-        private int exsilonHeartLeft = -10;
-        private int exsilonHeartHeight = -30;
-
+        #region Trong suot
         [DllImport("user32.dll", SetLastError = true)]
         static extern int GetWindowLong(IntPtr hWnd, int nIndex);
 
@@ -32,8 +24,27 @@ namespace BugProject
 
         [DllImport("user32.dll")]
         static extern bool SetLayeredWindowAttributes(IntPtr hwnd, uint crKey, byte bAlpha, uint dwFlags);
-
         long oldWindowLong;
+        public void SetFormTransparent(IntPtr Handle)
+        {
+            oldWindowLong = GetWindowLong(Handle, -20);
+            SetWindowLong(Handle, -20, Convert.ToInt32(oldWindowLong | 0x80000 | 0x20));
+        }
+
+        public void SetFormNormal(IntPtr Handle)
+        {
+            SetWindowLong(Handle, -20, Convert.ToInt32(oldWindowLong | 0x80000));
+        }
+        #endregion
+
+        public Image normalImage;
+        public Image specialIamge;
+
+        private int exsilonTalkLeft = 10;
+        private int exsilonTalkHeight = -110;
+
+        private int exsilonHeartLeft = -10;
+        private int exsilonHeartHeight = -30;
 
         const int step = 5;
         const int appr = 50;
@@ -65,16 +76,6 @@ namespace BugProject
             SetFormTransparent(this.Handle);
         }
 
-        public void SetFormTransparent(IntPtr Handle)
-        {
-            oldWindowLong = GetWindowLong(Handle, -20);
-            SetWindowLong(Handle, -20, Convert.ToInt32(oldWindowLong | 0x80000 | 0x20));
-        }
-
-        public void SetFormNormal(IntPtr Handle)
-        {
-            SetWindowLong(Handle, -20, Convert.ToInt32(oldWindowLong | 0x80000));
-        }
 
         public int GetLeft()
         {
@@ -290,14 +291,7 @@ namespace BugProject
             CONSTANT.accepTalk = true;
         }
 
-        public void StopMoveLove()
-        {
-            timer1.Enabled = false;
-            picNormal.Image = specialIamge;
-            stopMove = true;
-            tmrStandLove.Interval = CONSTANT.timeShowHeart;
-            tmrStandLove.Start();
-        }
+       
 
         private void tmrStandLove_Tick(object sender, EventArgs e)
         {
@@ -357,30 +351,27 @@ namespace BugProject
             //frmHeart.Top = this.Top + exsilonHeartHeight;
         }
 
-        public void StartLove(int milisecond)
+        public void StartLove(int milisecond,bool isShowHeart, Image loveIamge)
         {
             //Co the them lenh chuyen qua hinh khac khi noi
-            CONSTANT.accepTalk = false;
             timer1.Enabled = false;
-            picNormal.Image = specialIamge;
+            picNormal.Image = loveIamge;
             stopMove = true;
+            CONSTANT.accepTalk = false;
 
-            /* if (isTalking)
-             {
-                 frmTalkDialog.Dispose();
-                 frmTalkDialog = null;
-                 tmrTalk.Stop();
-                isTalking = false;
-             }*/
-            frmHeart = new Heart();
-            frmHeart.Left = this.Left + exsilonHeartLeft;
-            frmHeart.Top = this.Top + exsilonHeartHeight;
-            frmHeart.Show();
+            if (isShowHeart)
+            {
+                frmHeart = new Heart();
+                frmHeart.Left = this.Left + exsilonHeartLeft;
+                frmHeart.Top = this.Top + exsilonHeartHeight;
+                frmHeart.Show();
+            }
             //isTalking = true;
             //tmrHeart.Start();
             tmrCountDown.Interval = milisecond;
             tmrCountDown.Start();
         }
+
         public void StopLove()
         {
             

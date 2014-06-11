@@ -128,9 +128,29 @@ namespace BugProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap hatching_chicken_in_love {
+            get {
+                object obj = ResourceManager.GetObject("hatching_chicken_in_love", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Heart {
             get {
                 object obj = ResourceManager.GetObject("Heart", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap heart_liebe {
+            get {
+                object obj = ResourceManager.GetObject("heart_liebe", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -264,7 +284,7 @@ namespace BugProject.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ....
+        ///   Looks up a localized string similar to Tớ là sư tử, chúc gà con ngủ ngon.
         /// </summary>
         internal static string talkGoodNight {
             get {
@@ -273,7 +293,7 @@ namespace BugProject.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ....
+        ///   Looks up a localized string similar to Tớ là gà con, chúc sư tử ngủ ngon.
         /// </summary>
         internal static string talkGoodNight2 {
             get {
@@ -285,7 +305,17 @@ namespace BugProject.Properties {
         ///   Looks up a localized string similar to Tớ là con Sư tử gầm rú đầy uy mãnh
         ///Này bạn Gà kia, bạn thôi lắc mình được không?
         ///Trời nắng, gà con có muốn tắm nắng không?
-        ///Tớ là sư tư, nhưng không có nghĩa tớ tên tử.
+        ///Tớ là sư tư, nhưng không có nghĩa tớ tên tử
+        ///Gà con phải uống nước đều đặn nha
+        ///Tớ nghĩ tại sao mình lại uy mãnh vậy chứ?
+        ///Bạn gà con, bạn có người yêu chưa?
+        ///Nếu tớ và cậu được gần nhau thì sao nhỉ?
+        ///Này gà con, có muốn đi ngủ không?
+        ///Này gà con, có muốn đi tắm không?
+        ///Bỏ vỏ trứng và ra ngoài ngay đi gà con!
+        ///Cái thế giới này hình như chỉ có hai ta!
+        ///Tớ thuộc cung sư tử.
+        ///Nhà tớ có  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string talkSentences {
             get {
@@ -294,7 +324,24 @@ namespace BugProject.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tớ là gà con hay ghen.
+        ///   Looks up a localized string similar to Chào bạn, tớ là Gà Con thánh thiện.
+        ///Tớ vừa nở ra từ quả trứng xinh xinh này.
+        ///Cậu có biết sinh nhật của tớ ko?
+        ///Tớ thích nghe nhạc.
+        ///Tớ thích đi dzòng dzòng.
+        ///Tớ thích được người yêu ôm vào lòng.
+        ///Tớ thích ăn!
+        ///Tớ thích hát la lá la...
+        ///Tớ cực kì yêu BIỂN !
+        ///Tớ thích sáng tạo ra món ăn mới.
+        ///Tớ có khả năng vẽ vời lên cơ thể người khác.
+        ///Đáng yêu vừa thôi...
+        ///Yêu gì đâu nhaaa
+        ///Thôi, đi ngủ đi chứ!
+        ///Ngủ ngoan nha mấy anh chị đẹp trai đẹp gái!
+        ///Không thể ngừng lắc!
+        ///Khuya rồi nè, ngủ thôi...
+        ///Đợi cậu đi ngủ,  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string talkSentences2 {
             get {

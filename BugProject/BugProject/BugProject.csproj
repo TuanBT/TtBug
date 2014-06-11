@@ -73,6 +73,12 @@
     <Compile Include="Heart.Designer.cs">
       <DependentUpon>Heart.cs</DependentUpon>
     </Compile>
+    <Compile Include="HeartBig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HeartBig.Designer.cs">
+      <DependentUpon>HeartBig.cs</DependentUpon>
+    </Compile>
     <Compile Include="House.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +125,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Heart.resx">
       <DependentUpon>Heart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HeartBig.resx">
+      <DependentUpon>HeartBig.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="House.resx">
       <DependentUpon>House.cs</DependentUpon>
@@ -167,9 +176,6 @@
     <None Include="bin\Debug\termmgr_e_e.exe" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\bug.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\desktopini.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -190,6 +196,8 @@
     <None Include="Resources\Heart.gif" />
     <None Include="Resources\lion1.gif" />
     <None Include="Resources\lion2.gif" />
+    <None Include="Resources\hatching-chicken-in-love.gif" />
+    <None Include="Resources\heart_liebe.gif" />
     <Content Include="Tt.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
