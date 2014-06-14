@@ -147,7 +147,7 @@ namespace BugProject
         //Hành động khi có chuột đụng vào
         private void timer4_Tick(object sender, EventArgs e)
         {
-            if(CONSTANT.isStand)
+            if (VARIABLE.isStand)
             {
                 return;
             }

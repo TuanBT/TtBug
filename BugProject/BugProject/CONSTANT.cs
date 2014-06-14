@@ -36,7 +36,6 @@ namespace BugProject
         public static string[] normalTalk;
         public static string[] goodnightTalk;
 
-        public static bool isStand; //Lệnh đứng lại
-        public static bool accepTalk; ///Cho phép nói hay không?
+        
     }
 }

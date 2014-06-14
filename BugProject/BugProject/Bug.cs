@@ -62,7 +62,7 @@ namespace BugProject
         Form frmTalkDialog;
         private Form frmHeart;
         public Boolean isTalking = false;
-        private bool stopMove = false;
+        //private bool stopMove = false;
 
         public Bug()
         {
@@ -74,12 +74,14 @@ namespace BugProject
             TransparencyKey = Color.White;
             this.Opacity = 0.5;
             SetFormTransparent(this.Handle);
+            this.TopMost = true;
+            this.TopLevel = true;
         }
 
 
-        public int GetLeft()
+        public void SetImage(Image image)
         {
-            return this.Left;
+            this.picNormal.Image = image;
         }
 
         public void AppearLocation(int left, int top)
@@ -196,16 +198,8 @@ namespace BugProject
 
         public void MoveBug(int left, int top, int speed, Action<Boolean> c)
         {
-            if(CONSTANT.isStand)
-            {
-                return;
-            }
-            if (ignorMouse)
-            {
-                return;
-            }
             //Neu dung chay de noi, va chuot khong di vao thi phai dung lai
-            if (stopMove && speed != 1)
+            if ( VARIABLE.isStand || ignorMouse)
             {
                 left = this.Left;
                 top = this.Top;
@@ -233,7 +227,7 @@ namespace BugProject
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if(CONSTANT.isStand)
+            if (VARIABLE.isStand)
             {
                 timer1.Stop();
                 callBack(true);
@@ -279,16 +273,16 @@ namespace BugProject
         {
             StopTalk();
             StopLove();
-            CONSTANT.isStand = true;
-            CONSTANT.accepTalk = false;
+            VARIABLE.isStand = true;
+            VARIABLE.accepTalk = false;
 
         }
 
-        //Dừng không chạy nữa
+        //Cho phép chạy tiếp
         public void ContinousRun()
         {
-            CONSTANT.isStand = false;
-            CONSTANT.accepTalk = true;
+            VARIABLE.isStand = false;
+            VARIABLE.accepTalk = true;
         }
 
        
@@ -297,13 +291,13 @@ namespace BugProject
         {
             timer1.Enabled = true;
             picNormal.Image = normalImage;
-            stopMove = false;
+            VARIABLE.isStand = false;
             tmrStandLove.Stop();
         }
 
         public void StartTalk(String say, int milisecond)
         {
-            if(!CONSTANT.accepTalk)
+            if (!VARIABLE.accepTalk)
             {
                 return;
             }
@@ -314,7 +308,7 @@ namespace BugProject
 
             //Dung tu di chuyen
             timer1.Enabled = false;
-            stopMove = true;
+            VARIABLE.isStand = true;
 
             //Co the them lenh chuyen qua hinh khac khi noi
             picNormal.Image = specialIamge;
@@ -335,7 +329,7 @@ namespace BugProject
             {
                 //Chuyen ve hinh cu
                 picNormal.Image = normalImage;
-                stopMove = false;
+                VARIABLE.isStand = false;
 
                 frmTalkDialog.Dispose();
                 frmTalkDialog = null;
@@ -356,8 +350,8 @@ namespace BugProject
             //Co the them lenh chuyen qua hinh khac khi noi
             timer1.Enabled = false;
             picNormal.Image = loveIamge;
-            stopMove = true;
-            CONSTANT.accepTalk = false;
+            VARIABLE.isStand= true;
+            VARIABLE.accepTalk = false;
 
             if (isShowHeart)
             {
@@ -382,7 +376,7 @@ namespace BugProject
             }
             catch { }
             timer1.Enabled = true;
-            CONSTANT.accepTalk = true;
+            VARIABLE.accepTalk = true;
         }
 
         private void tmrCountDown_Tick(object sender, EventArgs e)

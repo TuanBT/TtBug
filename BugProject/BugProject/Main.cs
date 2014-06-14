@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using BugProject.ImageForm;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,6 +29,7 @@ namespace BugProject
         private Bug b2;
         private House frmHouse;
         private HeartBig frmHeartBig;
+        private Rain frmRain;
 
         public Main()
         {
@@ -79,8 +81,7 @@ namespace BugProject
         private void button1_Click(object sender, EventArgs e)
         {
             //BugManager.NewMoreBug();
-            Form frmHeartBig = new HeartBig();
-            frmHeartBig .Show();
+            b1.AppearTo(b2.Left, b2.Top);
 
         }
 
@@ -126,47 +127,81 @@ namespace BugProject
         private void tmrMeet_Tick(object sender, EventArgs e)
         {
             tmrMeet.Interval = 200;
+            if (frmHeartBig != null)
+            {
+                frmHeartBig.Dispose();
+                frmHeartBig = null;
+                b1.ContinousRun();
+                b2.ContinousRun();
+                tmrMeet.Interval = 10 * 1000;
+                return;
+            }
+            if (frmRain != null)
+            {
+                frmRain.Dispose();
+                frmRain = null;
+                b1.ContinousRun();
+                b2.ContinousRun();
+                tmrMeet.Interval = 10 * 1000;
+                return;
+            }
             if (IsMeet(b1, b2))
             {
-                if(countMeet==10)
+                b1.TopMost = true;
+                b1.TopLevel = true;
+                b2.TopMost = true;
+                b2.TopLevel = true;
+                if (countMeet == 10)
                 {
-                    //Code hien trai tim bu
                     b1.StopTalk();
                     b2.StopTalk();
                     b1.Stand();
                     b2.Stand();
+                    countMeet = 0;
+
+
+                    int numrand = rand.Next(1, 3);
+                    if (numrand == 1)
+                    {
+                        //Code hien mua trai tim
+                        b1.StartLove(CONSTANT.timeShowHeart, true, Properties.Resources.lion2);
+                        b2.StartLove(CONSTANT.timeShowHeart, false, Properties.Resources.hatching_chicken_in_love);
+                        frmHeartBig = new HeartBig();
+                        frmHeartBig.Left = (b1.Left < b2.Left ? b1.Left : b2.Left) - b1.Width;
+                        frmHeartBig.Top = (b1.Top < b2.Top ? b1.Top : b2.Top) - b1.Height;
+                        frmHeartBig.Show();
+                        //Thời gian hiển thị
+                        tmrMeet.Interval = 5 * 1000; //5s30
+                    }
+                    else
+                    {
+                        frmRain = new Rain();
+                        frmRain.Left = (b1.Left < b2.Left ? b1.Left : b2.Left) - b1.Width;
+                        frmRain.Top = (b1.Top < b2.Top ? b1.Top : b2.Top) - b1.Height * 3/2;
+                        frmRain.Show();
+                        //Thời gian hiển thị
+                        tmrMeet.Interval = 5 * 1000; //5s30
+                    }
+
+                }
+                else
+                {
+                    countMeet++;
+                    b1.StopTalk();
+                    b2.StopTalk();
                     b1.StartLove(CONSTANT.timeShowHeart, true, Properties.Resources.lion2);
                     b2.StartLove(CONSTANT.timeShowHeart, false, Properties.Resources.hatching_chicken_in_love);
-                    frmHeartBig = new HeartBig();
-                    frmHeartBig.Left = b1.Left<b2.Left?b1.Left:b2.Left;
-                    frmHeartBig.Top = b1.Top < b2.Top ? b1.Top : b2.Top;
-                    frmHeartBig.Show();
-                    countMeet = 0;
-                    tmrMeet.Interval = 5 * 1000;
-                    return;
+                    tmrMeet.Interval = 10 * 1000;
                 }
-                countMeet++;
-                try
-                {
-                    frmHeartBig.Dispose();
-                    frmHouse = null;
-                }catch{}
-                b1.ContinousRun();
-                b2.ContinousRun();
-                b1.StopTalk();
-                b2.StopTalk();
-                b1.StartLove(CONSTANT.timeShowHeart,true,Properties.Resources.lion2);
-                b2.StartLove(CONSTANT.timeShowHeart, false, Properties.Resources.hatching_chicken_in_love);
-                tmrMeet.Interval = 10 * 1000;
             }
         }
 
 
-        private bool SleepHouse=false;
+        private bool SleepHouse = false;
         private void tmrEvent_Tick(object sender, EventArgs e)
         {
             int nowHour = DateTime.Now.Hour;
-            //Chúc ngủ ngon
+            //Đi ngủ
             if (nowHour >= 0 && nowHour <= 4 || nowHour >= 12 && nowHour < 13)
             {
                 if (!SleepHouse)
@@ -191,7 +226,7 @@ namespace BugProject
             {
                 if (SleepHouse)
                 {
-                    tmrMeet.Interval = 10*1000;
+                    tmrMeet.Interval = 10 * 1000;
                     tmrMeet.Start();
                     b1.ContinousRun();
                     b2.ContinousRun();

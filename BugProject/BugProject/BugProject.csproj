@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BugProject</RootNamespace>
-    <AssemblyName>TtBug</AssemblyName>
+    <AssemblyName>tTBug</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -67,23 +67,29 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CONSTANT.cs" />
-    <Compile Include="Heart.cs">
+    <Compile Include="ImageForm\Heart.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Heart.Designer.cs">
+    <Compile Include="ImageForm\Heart.Designer.cs">
       <DependentUpon>Heart.cs</DependentUpon>
     </Compile>
-    <Compile Include="HeartBig.cs">
+    <Compile Include="ImageForm\HeartBig.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HeartBig.Designer.cs">
+    <Compile Include="ImageForm\HeartBig.Designer.cs">
       <DependentUpon>HeartBig.cs</DependentUpon>
     </Compile>
-    <Compile Include="House.cs">
+    <Compile Include="ImageForm\House.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="House.Designer.cs">
+    <Compile Include="ImageForm\House.Designer.cs">
       <DependentUpon>House.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImageForm\Rain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImageForm\Rain.Designer.cs">
+      <DependentUpon>Rain.cs</DependentUpon>
     </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
@@ -108,6 +114,7 @@
     <Compile Include="TalkDialog.Designer.cs">
       <DependentUpon>TalkDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="VARIABLE.cs" />
     <EmbeddedResource Include="Bug.resx">
       <DependentUpon>Bug.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -123,14 +130,17 @@
     <EmbeddedResource Include="Bug_Test.resx">
       <DependentUpon>Bug_Test.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Heart.resx">
+    <EmbeddedResource Include="ImageForm\Heart.resx">
       <DependentUpon>Heart.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HeartBig.resx">
+    <EmbeddedResource Include="ImageForm\HeartBig.resx">
       <DependentUpon>HeartBig.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="House.resx">
+    <EmbeddedResource Include="ImageForm\House.resx">
       <DependentUpon>House.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImageForm\Rain.resx">
+      <DependentUpon>Rain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
@@ -198,8 +208,10 @@
     <None Include="Resources\lion2.gif" />
     <None Include="Resources\hatching-chicken-in-love.gif" />
     <None Include="Resources\heart_liebe.gif" />
+    <None Include="Resources\Rain.gif" />
     <Content Include="Tt.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

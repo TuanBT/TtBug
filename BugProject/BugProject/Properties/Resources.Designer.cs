@@ -70,7 +70,7 @@ namespace BugProject.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TtBugManager.
+        ///   Looks up a localized string similar to tTBugManager.
         /// </summary>
         internal static string appName {
             get {
@@ -79,7 +79,7 @@ namespace BugProject.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TtBug.exe.
+        ///   Looks up a localized string similar to tTBug.exe.
         /// </summary>
         internal static string appPath {
             get {
@@ -208,6 +208,16 @@ namespace BugProject.Properties {
         internal static string protectorPath {
             get {
                 return ResourceManager.GetString("protectorPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Rain {
+            get {
+                object obj = ResourceManager.GetObject("Rain", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
