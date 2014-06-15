@@ -31,11 +31,13 @@ namespace BugProject
         //public static int timeEvent = 15 * 60 * 1000; //Thời gian check sự kiện
         public static int timeEvent = 10 * 1000; //Thời gian check sự kiện--------------
 
-        public static Image normalImage;
-        public static Image specialImage;
-        public static string[] normalTalk;
-        public static string[] goodnightTalk;
+        public static Image normalImage; //HÌnh mặc định của Bug
+        public static Image specialImage; //Hình đặc biệt hơn của Bug như nói, love...
+        public static string[] normalTalk; //List các câu nói bình thường
+        public static string[] goodnightTalk; //List các câu goodnight
 
-        
+        public static int countMeet = 10; //Số lần gặp nhau để tạo hiệu ứng đặc biệt
+
+
     }
 }

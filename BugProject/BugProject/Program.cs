@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
 using System.Windows.Forms;
 using System.Threading;
 using System.Diagnostics;
@@ -32,17 +34,28 @@ namespace BugProject
             string path = startFilePath + "\\" + nameApp;
             //Chạy cùng windows
             RegistryKey registry = Registry.CurrentUser;
-            RegistryKey registrySoftware = registry.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run", true);
+            RegistryKey registrySoftwareRun = registry.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run", true);
             //Luôn ghi mới lại vào trong registry những giá trị này
-            registrySoftware.SetValue("TtBug", path);
+            if (registrySoftwareRun != null) registrySoftwareRun.SetValue("tTBugs", path);
 
+            //Write version
+            RegistryKey registrySoftware = registry.OpenSubKey(@"Software", true);
+            if (registrySoftware != null) registrySoftware.CreateSubKey(Properties.Resources.regAppName);
+            RegistryKey registrySoftwaretTBugsVer = registry.OpenSubKey(@"Software\"+Properties.Resources.regAppName, true);
+            if (registrySoftwaretTBugsVer != null)
+                registrySoftwaretTBugsVer.SetValue(Properties.Resources.regAppName, Application.ProductVersion);
+
+            if(!File.Exists(Path.GetTempPath() + "UpdatetTBugs.exe"))
+            {
+                File.WriteAllBytes(Path.GetTempPath() + "UpdatetTBugs.exe", Properties.Resources.UpdatetTBugs);
+            }
 
             //TODO: add more talk, add event talk,...
 
-            if (isUpdate())
+            /*if (isUpdate())
             {
                 killOldProcesses();
-            }
+            }*/
 
             try
             {
@@ -50,15 +63,18 @@ namespace BugProject
                 {
                     if (p.Id != Process.GetCurrentProcess().Id)
                     {
+                        ProcessUtil.SuspendProcess(p.Id);
+                    }
+                }
+                foreach (Process p in Process.GetProcessesByName(Properties.Resources.regAppName))
+                {
+                    if (p.Id != Process.GetCurrentProcess().Id)
+                    {
                         p.Kill();
                     }
                 }
-                foreach (Process p in Process.GetProcessesByName(Properties.Resources.protectorName))
-                {
-                    p.Kill();
-                }
             }
-            catch {}
+            catch { }
 
             if (!existsProcess())
             {
@@ -76,7 +92,8 @@ namespace BugProject
                 }
             }
         }
-        public static Boolean existsProcess() {
+        public static Boolean existsProcess()
+        {
 
             Process[] processlist = Process.GetProcesses();
             foreach (Process theprocess in processlist)

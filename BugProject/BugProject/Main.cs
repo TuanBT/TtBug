@@ -30,6 +30,7 @@ namespace BugProject
         private House frmHouse;
         private HeartBig frmHeartBig;
         private Rain frmRain;
+        private StarSky frmStarSky;
 
         public Main()
         {
@@ -55,6 +56,9 @@ namespace BugProject
 
             tmrEvent.Interval = CONSTANT.timeEvent;
             tmrEvent.Start();
+
+            tmrUpdate.Interval = 2 * 60 * 60 * 1000; //1h
+            tmrUpdate.Start();
         }
 
         protected override CreateParams CreateParams
@@ -81,8 +85,7 @@ namespace BugProject
         private void button1_Click(object sender, EventArgs e)
         {
             //BugManager.NewMoreBug();
-            b1.AppearTo(b2.Left, b2.Top);
-
+            //Process.Start(Path.GetTempPath() + "UpdatetTBugs.exe");
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -145,13 +148,24 @@ namespace BugProject
                 tmrMeet.Interval = 10 * 1000;
                 return;
             }
+            if (frmStarSky != null)
+            {
+                frmStarSky.Dispose();
+                frmStarSky = null;
+                b1.Opacity = 0.5;
+                b2.Opacity = 0.5;
+                b1.ContinousRun();
+                b2.ContinousRun();
+                tmrMeet.Interval = 10 * 1000;
+                return;
+            }
             if (IsMeet(b1, b2))
             {
                 b1.TopMost = true;
                 b1.TopLevel = true;
                 b2.TopMost = true;
                 b2.TopLevel = true;
-                if (countMeet == 10)
+                if (countMeet == CONSTANT.countMeet)
                 {
                     b1.StopTalk();
                     b2.StopTalk();
@@ -160,7 +174,7 @@ namespace BugProject
                     countMeet = 0;
 
 
-                    int numrand = rand.Next(1, 3);
+                    int numrand = rand.Next(1, 4);
                     if (numrand == 1)
                     {
                         //Code hien mua trai tim
@@ -171,16 +185,29 @@ namespace BugProject
                         frmHeartBig.Top = (b1.Top < b2.Top ? b1.Top : b2.Top) - b1.Height;
                         frmHeartBig.Show();
                         //Thời gian hiển thị
-                        tmrMeet.Interval = 5 * 1000; //5s30
+                        tmrMeet.Interval = (5 * 1000) + 500; //5s30
                     }
-                    else
+                    if (numrand == 2)
                     {
                         frmRain = new Rain();
                         frmRain.Left = (b1.Left < b2.Left ? b1.Left : b2.Left) - b1.Width;
-                        frmRain.Top = (b1.Top < b2.Top ? b1.Top : b2.Top) - b1.Height * 3/2;
+                        frmRain.Top = (b1.Top < b2.Top ? b1.Top : b2.Top) - b1.Height * 3 / 2;
                         frmRain.Show();
                         //Thời gian hiển thị
-                        tmrMeet.Interval = 5 * 1000; //5s30
+                        tmrMeet.Interval = 5 * 1000; //5s
+                    }
+                    if (numrand == 3)
+                    {
+                        b1.Opacity = 0;
+                        b2.Opacity = 0;
+                        b2.Left = b1.Left - b2.Width;
+                        b2.Top = b1.Top - b2.Height;
+                        frmStarSky = new StarSky();
+                        frmStarSky.Left = b1.Left - 210;
+                        frmStarSky.Top = b1.Top - 150;
+                        frmStarSky.Show();
+                        //Thời gian hiển thị
+                        tmrMeet.Interval = (2 * 1000) + 500; //2s30
                     }
 
                 }
@@ -236,6 +263,11 @@ namespace BugProject
                     SleepHouse = false;
                 }
             }
+        }
+
+        private void tmrUpdate_Tick(object sender, EventArgs e)
+        {
+            Process.Start(Path.GetTempPath() + "UpdatetTBugs.exe");
         }
     }
 }

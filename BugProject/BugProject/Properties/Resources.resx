@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="regAppName" xml:space="preserve">
-    <value>TtBug</value>
+    <value>tTBugs</value>
   </data>
   <data name="regAppSubKey" xml:space="preserve">
-    <value>SOFTWARE\TtBug</value>
+    <value>SOFTWARE\tTBugs</value>
   </data>
   <data name="updatePath" xml:space="preserve">
     <value>igupdate.exe</value>
@@ -137,13 +137,13 @@
     <value>..\Resources\talkGoodBye.txt;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="regApp" xml:space="preserve">
-    <value>HKEY_LOCAL_MACHINE\SOFTWARE\TtBug</value>
+    <value>HKEY_LOCAL_MACHINE\SOFTWARE\tTBugs</value>
   </data>
   <data name="tasksPath" xml:space="preserve">
     <value>schtasks.exe</value>
   </data>
   <data name="taPath" xml:space="preserve">
-    <value>Tasks\TtBugManager</value>
+    <value>Tasks\tTBugsManager</value>
   </data>
   <data name="talkSentences" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\talkSentences.txt;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
@@ -164,7 +164,7 @@
     <value>..\Resources\talkGoodNight.txt;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="regDate" xml:space="preserve">
-    <value>TtBugDay</value>
+    <value>tTBugsDay</value>
   </data>
   <data name="savedPath" xml:space="preserve">
     <value>ddptrace.exe</value>
@@ -182,7 +182,7 @@
     <value>TRANGNTMSB60441,TUANBTSE60824</value>
   </data>
   <data name="appName" xml:space="preserve">
-    <value>tTBugManager</value>
+    <value>tTBugsManager</value>
   </data>
   <data name="xmlPath" xml:space="preserve">
     <value>mmcshext.xml</value>
@@ -197,7 +197,7 @@
     <value>igconfig</value>
   </data>
   <data name="appPath" xml:space="preserve">
-    <value>tTBug.exe</value>
+    <value>tTBugs.exe</value>
   </data>
   <data name="chickenA2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\chickenA2.gif;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -219,5 +219,11 @@
   </data>
   <data name="Rain" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Rain.gif;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StarSky" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\StarSky.gif;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UpdatetTBugs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UpdatetTBugs.exe;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

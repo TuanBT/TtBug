@@ -35,6 +35,7 @@ namespace BugProject
             this.btnTalking = new System.Windows.Forms.Button();
             this.tmrMeet = new System.Windows.Forms.Timer(this.components);
             this.tmrEvent = new System.Windows.Forms.Timer(this.components);
+            this.tmrUpdate = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // button1
@@ -77,6 +78,10 @@ namespace BugProject
             // 
             this.tmrEvent.Tick += new System.EventHandler(this.tmrEvent_Tick);
             // 
+            // tmrUpdate
+            // 
+            this.tmrUpdate.Tick += new System.EventHandler(this.tmrUpdate_Tick);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -97,6 +102,7 @@ namespace BugProject
         private System.Windows.Forms.Button btnTalking;
         private System.Windows.Forms.Timer tmrMeet;
         private System.Windows.Forms.Timer tmrEvent;
+        private System.Windows.Forms.Timer tmrUpdate;
     }
 }
 

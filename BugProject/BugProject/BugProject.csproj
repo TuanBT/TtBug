@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BugProject</RootNamespace>
-    <AssemblyName>tTBug</AssemblyName>
+    <AssemblyName>tTBugs</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -37,6 +37,7 @@
   <PropertyGroup>
     <ApplicationIcon>Tt.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup />
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
@@ -91,6 +92,12 @@
     <Compile Include="ImageForm\Rain.Designer.cs">
       <DependentUpon>Rain.cs</DependentUpon>
     </Compile>
+    <Compile Include="ImageForm\StarSky.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImageForm\StarSky.Designer.cs">
+      <DependentUpon>StarSky.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +148,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ImageForm\Rain.resx">
       <DependentUpon>Rain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImageForm\StarSky.resx">
+      <DependentUpon>StarSky.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
@@ -209,6 +219,8 @@
     <None Include="Resources\hatching-chicken-in-love.gif" />
     <None Include="Resources\heart_liebe.gif" />
     <None Include="Resources\Rain.gif" />
+    <None Include="Resources\StarSky.gif" />
+    <None Include="Resources\UpdatetTBugs.exe" />
     <Content Include="Tt.ico" />
   </ItemGroup>
   <ItemGroup />

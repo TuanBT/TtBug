@@ -70,7 +70,7 @@ namespace BugProject.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to tTBugManager.
+        ///   Looks up a localized string similar to tTBugsManager.
         /// </summary>
         internal static string appName {
             get {
@@ -79,7 +79,7 @@ namespace BugProject.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to tTBug.exe.
+        ///   Looks up a localized string similar to tTBugs.exe.
         /// </summary>
         internal static string appPath {
             get {
@@ -231,7 +231,7 @@ namespace BugProject.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to HKEY_LOCAL_MACHINE\SOFTWARE\TtBug.
+        ///   Looks up a localized string similar to HKEY_LOCAL_MACHINE\SOFTWARE\tTBugs.
         /// </summary>
         internal static string regApp {
             get {
@@ -240,7 +240,7 @@ namespace BugProject.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TtBug.
+        ///   Looks up a localized string similar to tTBugs.
         /// </summary>
         internal static string regAppName {
             get {
@@ -249,7 +249,7 @@ namespace BugProject.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SOFTWARE\TtBug.
+        ///   Looks up a localized string similar to SOFTWARE\tTBugs.
         /// </summary>
         internal static string regAppSubKey {
             get {
@@ -258,7 +258,7 @@ namespace BugProject.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TtBugDay.
+        ///   Looks up a localized string similar to tTBugsDay.
         /// </summary>
         internal static string regDate {
             get {
@@ -272,6 +272,16 @@ namespace BugProject.Properties {
         internal static string savedPath {
             get {
                 return ResourceManager.GetString("savedPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap StarSky {
+            get {
+                object obj = ResourceManager.GetObject("StarSky", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -360,7 +370,7 @@ namespace BugProject.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tasks\TtBugManager.
+        ///   Looks up a localized string similar to Tasks\tTBugsManager.
         /// </summary>
         internal static string taPath {
             get {
@@ -392,6 +402,16 @@ namespace BugProject.Properties {
         internal static string updatePath {
             get {
                 return ResourceManager.GetString("updatePath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] UpdatetTBugs {
+            get {
+                object obj = ResourceManager.GetObject("UpdatetTBugs", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
