@@ -68,35 +68,23 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CONSTANT.cs" />
+    <Compile Include="ImageForm\EventImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImageForm\EventImage.Designer.cs">
+      <DependentUpon>EventImage.cs</DependentUpon>
+    </Compile>
     <Compile Include="ImageForm\Heart.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ImageForm\Heart.Designer.cs">
       <DependentUpon>Heart.cs</DependentUpon>
     </Compile>
-    <Compile Include="ImageForm\HeartBig.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ImageForm\HeartBig.Designer.cs">
-      <DependentUpon>HeartBig.cs</DependentUpon>
-    </Compile>
     <Compile Include="ImageForm\House.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ImageForm\House.Designer.cs">
       <DependentUpon>House.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ImageForm\Rain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ImageForm\Rain.Designer.cs">
-      <DependentUpon>Rain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ImageForm\StarSky.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ImageForm\StarSky.Designer.cs">
-      <DependentUpon>StarSky.cs</DependentUpon>
     </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
@@ -137,20 +125,14 @@
     <EmbeddedResource Include="Bug_Test.resx">
       <DependentUpon>Bug_Test.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ImageForm\EventImage.resx">
+      <DependentUpon>EventImage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ImageForm\Heart.resx">
       <DependentUpon>Heart.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ImageForm\HeartBig.resx">
-      <DependentUpon>HeartBig.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ImageForm\House.resx">
       <DependentUpon>House.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ImageForm\Rain.resx">
-      <DependentUpon>Rain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ImageForm\StarSky.resx">
-      <DependentUpon>StarSky.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
@@ -221,6 +203,10 @@
     <None Include="Resources\Rain.gif" />
     <None Include="Resources\StarSky.gif" />
     <None Include="Resources\UpdatetTBugs.exe" />
+    <None Include="Resources\Grey_cloud.gif" />
+    <None Include="Resources\Lightning_spin.gif" />
+    <None Include="Resources\chicken black.png" />
+    <None Include="Resources\lion1 black.png" />
     <Content Include="Tt.ico" />
   </ItemGroup>
   <ItemGroup />

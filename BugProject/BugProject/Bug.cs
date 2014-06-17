@@ -82,6 +82,11 @@ namespace BugProject
             return this.Left;
         }
 
+        public void ChangeIamge(Image image)
+        {
+            picNormal.Image = image;
+        }
+
         public void AppearLocation(int left, int top)
         {
             this.Left = left;

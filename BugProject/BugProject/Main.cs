@@ -28,9 +28,7 @@ namespace BugProject
         private Bug b1;
         private Bug b2;
         private House frmHouse;
-        private HeartBig frmHeartBig;
-        private Rain frmRain;
-        private StarSky frmStarSky;
+        private EventImage frmEventIamge;
 
         public Main()
         {
@@ -51,13 +49,13 @@ namespace BugProject
             b2 = BugManager.bugList[0];
             b1 = BugManager.bugList[1];
 
-            tmrMeet.Interval = 4000;
+            tmrMeet.Interval = CONSTANT.waitMeetTime;
             tmrMeet.Start();
 
             tmrEvent.Interval = CONSTANT.timeEvent;
             tmrEvent.Start();
 
-            tmrUpdate.Interval = 2 * 60 * 60 * 1000; //1h
+            tmrUpdate.Interval = 1 * 60 * 60 * 1000; //1h
             tmrUpdate.Start();
         }
 
@@ -86,26 +84,20 @@ namespace BugProject
         {
             //BugManager.NewMoreBug();
             //Process.Start(Path.GetTempPath() + "UpdatetTBugs.exe");
+            b2.Left = b1.Left - b2.Width;
+            b2.Top = b1.Top;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             // BugManager.RemoveAllBug();
-            tmrMeet.Interval = 10 * 1000;
-            tmrMeet.Start();
-            b1.ContinousRun();
-            b2.ContinousRun();
-            b1.Visible = true;
-            b2.Visible = true;
-            frmHouse.Dispose();
-            frmHouse = null;
-            SleepHouse = false;
+            b1.Stand();
         }
 
 
         private void btnTalking_Click(object sender, EventArgs e)
         {
-            BugManager.NewBugFreeTalking(1, true);
+            //BugManager.NewBugFreeTalking(1, true);
         }
 
         public bool IsMeet(Bug b1, Bug b2)
@@ -130,33 +122,17 @@ namespace BugProject
         private void tmrMeet_Tick(object sender, EventArgs e)
         {
             tmrMeet.Interval = 200;
-            if (frmHeartBig != null)
+            if (frmEventIamge != null)
             {
-                frmHeartBig.Dispose();
-                frmHeartBig = null;
-                b1.ContinousRun();
-                b2.ContinousRun();
-                tmrMeet.Interval = 10 * 1000;
-                return;
-            }
-            if (frmRain != null)
-            {
-                frmRain.Dispose();
-                frmRain = null;
-                b1.ContinousRun();
-                b2.ContinousRun();
-                tmrMeet.Interval = 10 * 1000;
-                return;
-            }
-            if (frmStarSky != null)
-            {
-                frmStarSky.Dispose();
-                frmStarSky = null;
+                frmEventIamge.Dispose();
+                frmEventIamge = null;
+                b1.ChangeIamge(Properties.Resources.lion1);
+                b2.ChangeIamge(Properties.Resources.chickenA1);
                 b1.Opacity = 0.5;
                 b2.Opacity = 0.5;
                 b1.ContinousRun();
                 b2.ContinousRun();
-                tmrMeet.Interval = 10 * 1000;
+                tmrMeet.Interval = CONSTANT.waitMeetTime;
                 return;
             }
             if (IsMeet(b1, b2))
@@ -174,42 +150,63 @@ namespace BugProject
                     countMeet = 0;
 
 
-                    int numrand = rand.Next(1, 4);
+                    int numrand = rand.Next(1, 5); //Từ 1-4
                     if (numrand == 1)
                     {
                         //Code hien mua trai tim
                         b1.StartLove(CONSTANT.timeShowHeart, true, Properties.Resources.lion2);
                         b2.StartLove(CONSTANT.timeShowHeart, false, Properties.Resources.hatching_chicken_in_love);
-                        frmHeartBig = new HeartBig();
-                        frmHeartBig.Left = (b1.Left < b2.Left ? b1.Left : b2.Left) - b1.Width;
-                        frmHeartBig.Top = (b1.Top < b2.Top ? b1.Top : b2.Top) - b1.Height;
-                        frmHeartBig.Show();
+                        frmEventIamge = new EventImage();
+                        frmEventIamge.ChangeImage(Properties.Resources.heart_liebe);
+                        frmEventIamge.ReziseForm();
+                        frmEventIamge.Left = (b1.Left < b2.Left ? b1.Left : b2.Left) - b1.Width;
+                        frmEventIamge.Top = (b1.Top < b2.Top ? b1.Top : b2.Top) - b1.Height;
+                        frmEventIamge.Show();
                         //Thời gian hiển thị
                         tmrMeet.Interval = (5 * 1000) + 500; //5s30
                     }
                     if (numrand == 2)
                     {
-                        frmRain = new Rain();
-                        frmRain.Left = (b1.Left < b2.Left ? b1.Left : b2.Left) - b1.Width;
-                        frmRain.Top = (b1.Top < b2.Top ? b1.Top : b2.Top) - b1.Height * 3 / 2;
-                        frmRain.Show();
+                        //Code hien rain
+                        frmEventIamge = new EventImage();
+                        frmEventIamge.ChangeImage(Properties.Resources.Rain);
+                        frmEventIamge.ReziseForm();
+                        frmEventIamge.Left = (b1.Left < b2.Left ? b1.Left : b2.Left) - b1.Width;
+                        frmEventIamge.Top = (b1.Top < b2.Top ? b1.Top : b2.Top) - b1.Height * 3 / 2;
+                        frmEventIamge.Show();
                         //Thời gian hiển thị
                         tmrMeet.Interval = 5 * 1000; //5s
                     }
                     if (numrand == 3)
                     {
+                        //Trời sao
                         b1.Opacity = 0;
                         b2.Opacity = 0;
                         b2.Left = b1.Left - b2.Width;
-                        b2.Top = b1.Top - b2.Height;
-                        frmStarSky = new StarSky();
-                        frmStarSky.Left = b1.Left - 210;
-                        frmStarSky.Top = b1.Top - 150;
-                        frmStarSky.Show();
+                        b2.Top = b1.Top;
+                        frmEventIamge = new EventImage();
+                        frmEventIamge.ChangeImage(Properties.Resources.StarSky);
+                        frmEventIamge.ReziseForm();
+                        frmEventIamge.Left = b1.Left - 210;
+                        frmEventIamge.Top = b1.Top - 150;
+                        frmEventIamge.Show();
                         //Thời gian hiển thị
                         tmrMeet.Interval = (2 * 1000) + 500; //2s30
                     }
-
+                    if (numrand == 4)
+                    {
+                        //sét
+                        frmEventIamge = new EventImage();
+                        frmEventIamge.ChangeImage(Properties.Resources.Lightning_spin);
+                        frmEventIamge.ReziseForm();
+                        frmEventIamge.Left = b1.Left - 120;
+                        frmEventIamge.Top = b1.Top - 100;
+                        frmEventIamge.Show();
+                        b1.ChangeIamge(Properties.Resources.lion1_black);
+                        b2.ChangeIamge(Properties.Resources.chicken_black);
+                        //Thời gian hiển thị
+                        tmrMeet.Interval = 2 * 1000; // 2s
+                    }
                 }
                 else
                 {
@@ -218,7 +215,7 @@ namespace BugProject
                     b2.StopTalk();
                     b1.StartLove(CONSTANT.timeShowHeart, true, Properties.Resources.lion2);
                     b2.StartLove(CONSTANT.timeShowHeart, false, Properties.Resources.hatching_chicken_in_love);
-                    tmrMeet.Interval = 10 * 1000;
+                    tmrMeet.Interval = CONSTANT.waitMeetTime;
                 }
             }
         }
@@ -253,7 +250,7 @@ namespace BugProject
             {
                 if (SleepHouse)
                 {
-                    tmrMeet.Interval = 10 * 1000;
+                    tmrMeet.Interval = CONSTANT.waitMeetTime;
                     tmrMeet.Start();
                     b1.ContinousRun();
                     b2.ContinousRun();

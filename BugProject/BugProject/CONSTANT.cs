@@ -37,6 +37,7 @@ namespace BugProject
         public static string[] goodnightTalk; //List các câu goodnight
 
         public static int countMeet = 10; //Số lần gặp nhau để tạo hiệu ứng đặc biệt
+        public static int waitMeetTime = 10 * 1000; // 10s Số giây tối thiểu giữa 2 lần gặp nhau
 
 
     }
