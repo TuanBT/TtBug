@@ -28,15 +28,17 @@ namespace BugProject
         public static int timeMouseOn = 300; //Thời gian phản ứng khi có chuột đụng vào TheBug
 
         public static int timeShowHeart = 2 * 1000; //Thời gian hiện trái tim
-        //public static int timeEvent = 15 * 60 * 1000; //Thời gian check sự kiện
-        public static int timeEvent = 10 * 1000; //Thời gian check sự kiện--------------
+        public static int timeEvent = 15 * 60 * 1000; // 15m Thời gian check sự kiện
+        //public static int timeEvent = 45 * 1000; // 10s Thời gian check sự kiện--------------
 
         public static Image normalImage; //HÌnh mặc định của Bug
         public static Image specialImage; //Hình đặc biệt hơn của Bug như nói, love...
         public static string[] normalTalk; //List các câu nói bình thường
         public static string[] goodnightTalk; //List các câu goodnight
 
-        public static int countMeet = 10; //Số lần gặp nhau để tạo hiệu ứng đặc biệt
+        public static int updateTime = 30*60*1000; //Thời gian check update
+
+        
         public static int waitMeetTime = 10 * 1000; // 10s Số giây tối thiểu giữa 2 lần gặp nhau
 
 

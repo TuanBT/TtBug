@@ -1,15 +1,7 @@
 ﻿using BugProject.ImageForm;
-using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
-using System.Text;
-using System.Threading;
 using System.Windows.Forms;
-using System.Runtime.InteropServices;
 using System.IO;
 
 namespace BugProject
@@ -55,7 +47,7 @@ namespace BugProject
             tmrEvent.Interval = CONSTANT.timeEvent;
             tmrEvent.Start();
 
-            tmrUpdate.Interval = 1 * 60 * 60 * 1000; //1h
+            tmrUpdate.Interval = CONSTANT.updateTime;
             tmrUpdate.Start();
         }
 
@@ -82,10 +74,7 @@ namespace BugProject
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //BugManager.NewMoreBug();
-            //Process.Start(Path.GetTempPath() + "UpdatetTBugs.exe");
-            b2.Left = b1.Left - b2.Width;
-            b2.Top = b1.Top;
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -141,8 +130,9 @@ namespace BugProject
                 b1.TopLevel = true;
                 b2.TopMost = true;
                 b2.TopLevel = true;
-                if (countMeet == CONSTANT.countMeet)
+                if (countMeet == VARIABLE.countMeet)
                 {
+                    VARIABLE.countMeet = rand.Next(2, 11);
                     b1.StopTalk();
                     b2.StopTalk();
                     b1.Stand();
@@ -187,11 +177,11 @@ namespace BugProject
                         frmEventIamge = new EventImage();
                         frmEventIamge.ChangeImage(Properties.Resources.StarSky);
                         frmEventIamge.ReziseForm();
-                        frmEventIamge.Left = b1.Left - 210;
-                        frmEventIamge.Top = b1.Top - 150;
+                        frmEventIamge.Left = b1.Left - 65;
+                        frmEventIamge.Top = b1.Top - 105;
                         frmEventIamge.Show();
                         //Thời gian hiển thị
-                        tmrMeet.Interval = (2 * 1000) + 500; //2s30
+                        tmrMeet.Interval = 2 * 1000; //2s
                     }
                     if (numrand == 4)
                     {
@@ -222,16 +212,30 @@ namespace BugProject
 
 
         private bool SleepHouse = false;
+        private MidiPlayer midiPlayer;
         private void tmrEvent_Tick(object sender, EventArgs e)
         {
             int nowHour = DateTime.Now.Hour;
             //Đi ngủ
             if (nowHour >= 0 && nowHour <= 4 || nowHour >= 12 && nowHour < 13)
             {
+                if(nowHour>=0 && nowHour <1)
+                {
+                    try
+                    {
+                        midiPlayer.StopSound(true);
+                        midiPlayer = new MidiPlayer(Properties.Resources.chucbengungon);
+                        midiPlayer.PlaySound();
+                    }
+                    catch (Exception){}
+                }
                 if (!SleepHouse)
                 {
                     //Cho viec nhay vao nha
                     frmHouse = new House();
+                    //frmEventIamge = new EventImage();
+                    //frmHouse.ChangeImage(Properties.Resources.House);
+                    //frmEventIamge.ReziseForm();
                     frmHouse.Left = Screen.PrimaryScreen.Bounds.Width - frmHouse.GetPicZise().Width;
                     frmHouse.Top = Screen.PrimaryScreen.WorkingArea.Height - frmHouse.GetPicZise().Height;
                     frmHouse.Show();
@@ -257,6 +261,7 @@ namespace BugProject
                     b1.Visible = true;
                     b2.Visible = true;
                     frmHouse.Dispose();
+                    frmHouse = null;
                     SleepHouse = false;
                 }
             }

@@ -1,6 +1,6 @@
-﻿namespace BugProject
+﻿namespace BugProject.ImageForm
 {
-    partial class House
+    partial class EventImage
     {
         /// <summary>
         /// Required designer variable.
@@ -28,53 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.tmrCursor = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::BugProject.Properties.Resources.House;
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(70, 70);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // tmrCursor
-            // 
-            this.tmrCursor.Tick += new System.EventHandler(this.tmrCursor_Tick);
-            // 
-            // House
+            // EventImage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(70, 70);
+            this.ClientSize = new System.Drawing.Size(50, 50);
             this.ControlBox = false;
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "House";
-            this.Opacity = 0.5D;
+            this.Name = "EventImage";
+            this.Opacity = 0.8D;
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.Text = "House";
+            this.Text = "EventImage";
             this.TopMost = true;
-            this.Load += new System.EventHandler(this.House_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        public System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Timer tmrCursor;
-
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

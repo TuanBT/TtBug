@@ -127,6 +127,16 @@ namespace BugProject.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] chucbengungon {
+            get {
+                object obj = ResourceManager.GetObject("chucbengungon", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ExamClientV4.
         /// </summary>
         internal static string exitWith {
@@ -171,6 +181,16 @@ namespace BugProject.Properties {
         internal static System.Drawing.Bitmap heart_liebe {
             get {
                 object obj = ResourceManager.GetObject("heart_liebe", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap House {
+            get {
+                object obj = ResourceManager.GetObject("House", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

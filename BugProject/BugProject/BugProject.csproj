@@ -102,6 +102,7 @@
     </Compile>
     <Compile Include="SentenceDB.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="MidiPlayer.cs" />
     <Compile Include="SQLDatabaseHelper.cs" />
     <Compile Include="TalkDialog.cs">
       <SubType>Form</SubType>
@@ -207,6 +208,8 @@
     <None Include="Resources\Lightning_spin.gif" />
     <None Include="Resources\chicken black.png" />
     <None Include="Resources\lion1 black.png" />
+    <None Include="Resources\House.gif" />
+    <None Include="Resources\chucbengungon.mid" />
     <Content Include="Tt.ico" />
   </ItemGroup>
   <ItemGroup />
