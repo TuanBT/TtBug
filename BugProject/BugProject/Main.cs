@@ -74,7 +74,6 @@ namespace BugProject
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -117,8 +116,8 @@ namespace BugProject
                 frmEventIamge = null;
                 b1.ChangeIamge(Properties.Resources.lion1);
                 b2.ChangeIamge(Properties.Resources.chickenA1);
-                b1.Opacity = 0.5;
-                b2.Opacity = 0.5;
+                b1.Opacity = CONSTANT.opacityBug;
+                b2.Opacity = CONSTANT.opacityBug;
                 b1.ContinousRun();
                 b2.ContinousRun();
                 tmrMeet.Interval = CONSTANT.waitMeetTime;
@@ -137,10 +136,12 @@ namespace BugProject
                     b2.StopTalk();
                     b1.Stand();
                     b2.Stand();
+                    b1.Opacity = 1;
+                    b2.Opacity = 1;
                     countMeet = 0;
 
 
-                    int numrand = rand.Next(1, 5); //Từ 1-4
+                    int numrand = rand.Next(1, 7-1); //Từ 1-4
                     if (numrand == 1)
                     {
                         //Code hien mua trai tim
@@ -197,6 +198,54 @@ namespace BugProject
                         //Thời gian hiển thị
                         tmrMeet.Interval = 2 * 1000; // 2s
                     }
+                    if (numrand == 5)
+                    {
+                        //Tắm
+                        b1.Opacity = 0;
+                        b2.Opacity = 0;
+                        b1.Left = b2.Left - b1.Width;
+                        b1.Top = b2.Top;
+                        frmEventIamge = new EventImage();
+                        frmEventIamge.ChangeImage(Properties.Resources.tamMat);
+                        frmEventIamge.ReziseForm();
+                        frmEventIamge.Left = b1.Left;
+                        frmEventIamge.Top = b1.Top;
+                        frmEventIamge.Show();
+                        //Thời gian hiển thị
+                        tmrMeet.Interval = 2 * 1000; // 2s
+                    }
+                    if (numrand == 6)
+                    {
+                        //Bus
+                        b1.Opacity = 0;
+                        b2.Opacity = 0;
+                        b1.Left = b2.Left - b1.Width;
+                        b1.Top = b2.Top;
+                        frmEventIamge = new EventImage();
+                        frmEventIamge.ChangeImage(Properties.Resources.bus55);
+                        frmEventIamge.ReziseForm();
+                        frmEventIamge.Left = b1.Left;
+                        frmEventIamge.Top = b1.Top;
+                        frmEventIamge.Show();
+                        //Thời gian hiển thị
+                        tmrMeet.Interval = 2 * 1000; // 2s
+                    }
+                    if (numrand == 7)
+                    {
+                        //W.C
+                        b1.Opacity = 0;
+                        b2.Opacity = 0;
+                        b1.Left = b2.Left - b1.Width;
+                        b1.Top = b2.Top;
+                        frmEventIamge = new EventImage();
+                        frmEventIamge.ChangeImage(Properties.Resources.Tolet);
+                        frmEventIamge.ReziseForm();
+                        frmEventIamge.Left = b1.Left;
+                        frmEventIamge.Top = b1.Top;
+                        frmEventIamge.Show();
+                        //Thời gian hiển thị
+                        tmrMeet.Interval = 2 * 1000; // 2s
+                    }
                 }
                 else
                 {
@@ -224,10 +273,14 @@ namespace BugProject
                     try
                     {
                         midiPlayer.StopSound(true);
+                    }
+                    catch (Exception){}
+                    try
+                    {
                         midiPlayer = new MidiPlayer(Properties.Resources.chucbengungon);
                         midiPlayer.PlaySound();
                     }
-                    catch (Exception){}
+                    catch (Exception) { }
                 }
                 if (!SleepHouse)
                 {

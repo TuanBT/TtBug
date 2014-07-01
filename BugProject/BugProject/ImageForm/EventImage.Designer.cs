@@ -53,7 +53,6 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "EventImage";
-            this.Opacity = 0.8D;
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "EventImage";

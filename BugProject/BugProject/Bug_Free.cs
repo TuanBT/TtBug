@@ -64,8 +64,8 @@ namespace BugProject
         #endregion
 
         Random ran = new Random();
-        int width = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width;
-        int height = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height;
+        private int width;
+        private int height;
         private int range = CONSTANT.range;
         private int appr = CONSTANT.appr;
         private int standWaitingTimeMin = CONSTANT.standWaitingTimeMin;
@@ -76,7 +76,10 @@ namespace BugProject
 
         private void Bug_Free_Load(object sender, EventArgs e)
         {
-            AppearLocation(width / 2, height / 2);
+            width = Screen.PrimaryScreen.Bounds.Width - this.width; //Chiều rộng màn hình Bug đi tới
+            height = Screen.PrimaryScreen.Bounds.Height - this.height; //Chiều dọc màn hình Bug được đi
+            //AppearLocation(width / 2, height / 2); //Chính giữa màn hình
+            AppearLocation(ran.Next(0, width), ran.Next(0, height));
             timer4.Interval = CONSTANT.timeMouseOn;
             timer4.Start();
             Action();

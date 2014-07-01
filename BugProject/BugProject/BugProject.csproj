@@ -210,6 +210,10 @@
     <None Include="Resources\lion1 black.png" />
     <None Include="Resources\House.gif" />
     <None Include="Resources\chucbengungon.mid" />
+    <None Include="Resources\bus55.gif" />
+    <None Include="Resources\tamMat.gif" />
+    <None Include="Resources\Tolet.gif" />
+    <None Include="Resources\White_snow.gif" />
     <Content Include="Tt.ico" />
   </ItemGroup>
   <ItemGroup />

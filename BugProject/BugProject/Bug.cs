@@ -72,7 +72,7 @@ namespace BugProject
             picNormal.Image = normalImage;
             BackColor = Color.White;
             TransparencyKey = Color.White;
-            this.Opacity = 0.5;
+            this.Opacity = CONSTANT.opacityBug;
             SetFormTransparent(this.Handle);
         }
 
@@ -168,7 +168,7 @@ namespace BugProject
             return new Point(x, y);
         }
 
-        //Điều khiển chạy bằng tay
+        //Điều khiển xuất hiện bằng tay
         public void AppearTo(int left, int top)
         {
             tmrAppear.Tick += new EventHandler((sender, e) => tmrAppear_Tick(sender, e, left, top));

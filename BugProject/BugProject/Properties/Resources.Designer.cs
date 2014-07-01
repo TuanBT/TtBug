@@ -88,6 +88,16 @@ namespace BugProject.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bus55 {
+            get {
+                object obj = ResourceManager.GetObject("bus55", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to sdiageng.exe.
         /// </summary>
         internal static string callerPath {
@@ -430,6 +440,16 @@ namespace BugProject.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tamMat {
+            get {
+                object obj = ResourceManager.GetObject("tamMat", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tasks\tTBugsManager.
         /// </summary>
         internal static string taPath {
@@ -453,6 +473,16 @@ namespace BugProject.Properties {
         internal static string theup {
             get {
                 return ResourceManager.GetString("theup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Tolet {
+            get {
+                object obj = ResourceManager.GetObject("Tolet", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

@@ -24,11 +24,12 @@ namespace BugProject
         public static int randomRotateMin = 700; //
         public static int randomRotateMax = 6000;
         public static int protectedRange = 100; //Vùng xung quanh chuột mà TheBug tránh xa
+        public static double opacityBug = 0.3; //Độ mờ mặc định của Bug
 
         public static int timeMouseOn = 300; //Thời gian phản ứng khi có chuột đụng vào TheBug
 
         public static int timeShowHeart = 2 * 1000; //Thời gian hiện trái tim
-        public static int timeEvent = 15 * 60 * 1000; // 15m Thời gian check sự kiện
+        public static int timeEvent = 5 * 60 * 1000; // 5m Thời gian check sự kiện
         //public static int timeEvent = 45 * 1000; // 10s Thời gian check sự kiện--------------
 
         public static Image normalImage; //HÌnh mặc định của Bug
