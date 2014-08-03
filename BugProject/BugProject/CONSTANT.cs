@@ -7,8 +7,8 @@ namespace BugProject
 {
     public class CONSTANT
     {
-        public static int talkRandomTimerMin = 10 *60* 1000; //10 minutes
-        public static int talkRandomTimerMax = 15 *60 * 1000; //15 minutes
+        public static int talkRandomTimerMin = 20 *60* 1000; //20 minutes
+        public static int talkRandomTimerMax = 30 *60 * 1000; //30 minutes
         //public static int talkRandomTimerMin = 5 * 1000; //10 sec--------
         //public static int talkRandomTimerMax = 10 * 1000; //15 sec-----------
         public static int talkTime = 10 * 1000; //10 seconds

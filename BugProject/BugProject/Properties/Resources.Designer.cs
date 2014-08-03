@@ -487,6 +487,16 @@ namespace BugProject.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap trungthu {
+            get {
+                object obj = ResourceManager.GetObject("trungthu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to igupdate.exe.
         /// </summary>
         internal static string updatePath {

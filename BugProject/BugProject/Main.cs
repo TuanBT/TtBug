@@ -1,4 +1,5 @@
-﻿using BugProject.ImageForm;
+﻿using System.Drawing;
+using BugProject.ImageForm;
 using System;
 using System.Diagnostics;
 using System.Windows.Forms;
@@ -67,6 +68,7 @@ namespace BugProject
                 value = false;
                 CreateHandle();
             }
+            //Show main => true
             //value = true;
             base.SetVisibleCore(value);
         }
@@ -74,6 +76,7 @@ namespace BugProject
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -141,7 +144,7 @@ namespace BugProject
                     countMeet = 0;
 
 
-                    int numrand = rand.Next(1, 7-1); //Từ 1-4
+                    int numrand = rand.Next(1, 9 + 1); //Từ 1-9
                     if (numrand == 1)
                     {
                         //Code hien mua trai tim
@@ -246,6 +249,41 @@ namespace BugProject
                         //Thời gian hiển thị
                         tmrMeet.Interval = 2 * 1000; // 2s
                     }
+                    if (numrand == 8)
+                    {
+                        //Meet date
+                        frmEventIamge = new EventImage();
+                        Label lblDate = new Label();
+                        frmEventIamge.Controls.Add(lblDate);
+                        frmEventIamge.ChangeImage(null);
+                        frmEventIamge.ReziseForm();
+                        lblDate.Location = new Point(0, frmEventIamge.Height);
+                        lblDate.Font = new Font("Arial", 30);
+                        lblDate.Text = (DateTime.Now - new DateTime(2014, 1, 1)).Days.ToString();
+                        lblDate.AutoSize = true;
+                        frmEventIamge.Size = new Size(lblDate.Width, frmEventIamge.Height + lblDate.Height);
+                        frmEventIamge.Left = (b1.Left < b2.Left ? b1.Left : b2.Left);
+                        frmEventIamge.Top = (b1.Top < b2.Top ? b1.Top : b2.Top);
+                        frmEventIamge.Show();
+                        //Thời gian hiển thị
+                        tmrMeet.Interval = 2 * 1000; // 2s
+                    }
+                    if (numrand == 9)
+                    {
+                        //Trung thu
+                        b1.Opacity = 0;
+                        b2.Opacity = 0;
+                        b2.Left = b1.Left - b2.Width;
+                        b2.Top = b1.Top;
+                        frmEventIamge = new EventImage();
+                        frmEventIamge.ChangeImage(Properties.Resources.trungthu);
+                        frmEventIamge.ReziseForm();
+                        frmEventIamge.Left = b1.Left - 70;
+                        frmEventIamge.Top = b1.Top - 40;
+                        frmEventIamge.Show();
+                        //Thời gian hiển thị
+                        tmrMeet.Interval = 2 * 1000; //2s
+                    }
                 }
                 else
                 {
@@ -268,13 +306,13 @@ namespace BugProject
             //Đi ngủ
             if (nowHour >= 0 && nowHour <= 4 || nowHour >= 12 && nowHour < 13)
             {
-                if(nowHour>=0 && nowHour <1)
+                if (nowHour >= 0 && nowHour < 1)
                 {
                     try
                     {
                         midiPlayer.StopSound(true);
                     }
-                    catch (Exception){}
+                    catch (Exception) { }
                     try
                     {
                         midiPlayer = new MidiPlayer(Properties.Resources.chucbengungon);
