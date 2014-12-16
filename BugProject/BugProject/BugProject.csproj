@@ -215,6 +215,7 @@
     <None Include="Resources\Tolet.gif" />
     <None Include="Resources\White_snow.gif" />
     <None Include="Resources\trungthu.gif" />
+    <None Include="Resources\Noel.gif" />
     <Content Include="Tt.ico" />
   </ItemGroup>
   <ItemGroup />

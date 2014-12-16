@@ -76,7 +76,7 @@ namespace BugProject
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -144,7 +144,8 @@ namespace BugProject
                     countMeet = 0;
 
 
-                    int numrand = rand.Next(1, 9 + 1); //Từ 1-9
+                    int numrand = rand.Next(1, 10 + 1); //Từ 1-9
+                    //numrand = 9;
                     if (numrand == 1)
                     {
                         //Code hien mua trai tim
@@ -283,6 +284,22 @@ namespace BugProject
                         frmEventIamge.Show();
                         //Thời gian hiển thị
                         tmrMeet.Interval = 2 * 1000; //2s
+                    }
+                    if (numrand == 10)
+                    {
+                        //Bus
+                        b1.Opacity = 0;
+                        b2.Opacity = 0;
+                        b1.Left = b2.Left - b1.Width;
+                        b1.Top = b2.Top;
+                        frmEventIamge = new EventImage();
+                        frmEventIamge.ChangeImage(Properties.Resources.Noel);
+                        frmEventIamge.ReziseForm();
+                        frmEventIamge.Left = b1.Left;
+                        frmEventIamge.Top = b1.Top;
+                        frmEventIamge.Show();
+                        //Thời gian hiển thị
+                        tmrMeet.Interval = 2 * 1000; // 2s
                     }
                 }
                 else
