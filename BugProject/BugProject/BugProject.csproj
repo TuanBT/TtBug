@@ -213,9 +213,9 @@
     <None Include="Resources\bus55.gif" />
     <None Include="Resources\tamMat.gif" />
     <None Include="Resources\Tolet.gif" />
-    <None Include="Resources\White_snow.gif" />
     <None Include="Resources\trungthu.gif" />
     <None Include="Resources\Noel.gif" />
+    <None Include="Resources\Jingle Bells.mid" />
     <Content Include="Tt.ico" />
   </ItemGroup>
   <ItemGroup />

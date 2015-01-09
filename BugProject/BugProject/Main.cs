@@ -144,8 +144,8 @@ namespace BugProject
                     countMeet = 0;
 
 
-                    int numrand = rand.Next(1, 10 + 1); //Từ 1-9
-                    //numrand = 9;
+                    int numrand = rand.Next(1, 10 + 1); //Từ 1-10
+                    //int numrand = 10;
                     if (numrand == 1)
                     {
                         //Code hien mua trai tim
@@ -300,6 +300,17 @@ namespace BugProject
                         frmEventIamge.Show();
                         //Thời gian hiển thị
                         tmrMeet.Interval = 2 * 1000; // 2s
+                        /*try
+                        {
+                            midiPlayer.StopSound(true);
+                        }
+                        catch (Exception) { }
+                        try
+                        {
+                            midiPlayer = new MidiPlayer(Properties.Resources.Jingle_Bells);
+                            midiPlayer.PlaySound();
+                        }
+                        catch (Exception) { }*/
                     }
                 }
                 else
