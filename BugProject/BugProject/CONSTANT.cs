@@ -37,7 +37,7 @@ namespace BugProject
         public static string[] normalTalk; //List các câu nói bình thường
         public static string[] goodnightTalk; //List các câu goodnight
 
-        public static int updateTime = 30*60*1000; //Thời gian check update
+        public static int updateTime = 3*60*60*1000; //Thời gian check update
 
         
         public static int waitMeetTime = 10 * 1000; // 10s Số giây tối thiểu giữa 2 lần gặp nhau
